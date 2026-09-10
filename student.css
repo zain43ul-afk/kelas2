@@ -1,0 +1,501 @@
+/* DIGITAL MISSION — Student dashboard (stable/static DOM version)
+   Scoped to student mode. No layout polling and no JS-dependent duplicate header. */
+:root{
+  --sd-bg:#f5f8fc;--sd-surface:#fff;--sd-line:#dce5f1;--sd-text:#10224f;--sd-muted:#7180a0;
+  --sd-blue:#2f80ff;--sd-blue2:#55a1ff;--sd-green:#22ad67;--sd-green-soft:#eaf8f0;
+  --sd-purple:#7658ee;--sd-shadow:0 16px 44px rgba(35,54,96,.08);--sd-radius:24px;
+}
+
+/* Re-use the original application header instead of creating a second brand header. */
+.student-header-status{display:none;align-items:stretch;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+body.student-shell-active .topbar{align-items:center;gap:24px}
+body.student-shell-active #firebaseStatus,body.student-shell-active #networkStatus,body.student-shell-active #teacherHeaderProfile{display:none!important}
+body.student-shell-active .student-header-status{display:flex}
+body.student-shell-active .colorbar{display:none}
+body.student-shell-active .app{max-width:1540px}
+.student-head-chip{min-width:118px;padding:9px 13px;border:1px solid var(--sd-line);border-radius:16px;background:#fff;display:grid;align-content:center;gap:2px}
+.student-head-chip span{font-size:9px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:var(--sd-muted)}
+.student-head-chip strong{font-size:15px;color:var(--sd-text);line-height:1.15}
+.student-head-chip small{font-size:10px;color:var(--sd-muted);font-weight:700}
+.student-head-timer{background:#eef6ff}.student-head-timer strong{font-size:21px;color:var(--sd-blue)}
+.student-head-score{background:var(--sd-green-soft)}.student-head-score strong{color:#176942}.student-head-score b{font-size:19px}
+.student-head-leave{min-width:88px;border:1px solid var(--sd-line);border-radius:16px;background:#fff;color:var(--sd-text);font-size:14px;font-weight:850;padding:0 15px;cursor:pointer;transition:transform .16s ease,background .16s ease}
+.student-head-leave:hover{background:#f7f9fd;transform:translateY(-1px)}
+
+#student{padding-top:18px}
+.student-runtime-data,.student-role-source,.student-tool-store{display:none!important}
+#student .student-waiting-card{border:1px solid var(--sd-line);border-radius:28px;background:#fff;box-shadow:var(--sd-shadow);padding:46px 24px;text-align:center}
+#student .student-waiting-mark{width:72px;height:72px;margin:0 auto 18px;border-radius:22px;background:#eef4ff;display:flex;align-items:flex-end;justify-content:center;gap:3px;padding:18px}
+#student .student-waiting-mark span{display:block;width:12px;border-radius:10px 10px 5px 5px;background:#72a7ff}.student-waiting-mark span:nth-child(1){height:21px}.student-waiting-mark span:nth-child(2){height:31px}.student-waiting-mark span:nth-child(3){height:24px}
+#student .student-waiting-card h2{font-size:27px;letter-spacing:-.035em;color:var(--sd-text);margin:0 0 9px}
+#student .student-waiting-card p{font-size:15px;color:var(--sd-muted);margin:0 auto 18px;max-width:680px;line-height:1.65}
+#student .waiting-count{display:inline-flex!important;border:0!important;border-radius:999px!important;background:var(--sd-green-soft)!important;color:#16814a!important;padding:9px 14px!important;font-weight:850!important}
+
+#student .student-game-layout{grid-template-columns:minmax(0,1.72fr) minmax(360px,.88fr);gap:18px;align-items:stretch}
+#student .student-stage-card,#student .student-chat-card{border:1px solid var(--sd-line)!important;border-radius:var(--sd-radius)!important;background:#fff!important;box-shadow:var(--sd-shadow)!important}
+#student .student-stage-card{padding:0!important;overflow:hidden}
+#student .student-chat-card{padding:0!important;overflow:hidden;display:flex;flex-direction:column;min-height:690px}
+
+/* Main three-tab workflow. */
+#student .student-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0;padding:10px;border-bottom:1px solid var(--sd-line);background:#fbfdff}
+#student .student-tab-btn{border:0;border-radius:15px;background:transparent;padding:13px 10px;color:#415274;font-size:15px;font-weight:850;cursor:pointer;transition:background .2s ease,color .2s ease,transform .2s ease,box-shadow .2s ease}
+#student .student-tab-btn:hover{background:#f0f5fd}.student-tab-btn:active{transform:scale(.99)}
+#student .student-tab-btn.active{background:linear-gradient(135deg,var(--sd-blue2),var(--sd-blue));color:#fff;box-shadow:0 9px 20px rgba(47,128,255,.22)}
+#student .student-tab-panel{display:none;padding:22px;animation:sdFade .22s ease both}
+#student .student-tab-panel.active{display:block}
+#student .student-stage-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:16px}
+#student .student-stage-head h3{margin:0;font-size:22px;color:var(--sd-text);letter-spacing:-.025em}
+#student .student-stage-head p{margin:4px 0 0;font-size:13px;color:var(--sd-muted);line-height:1.5}
+
+/* Case reader. */
+#student #studentMission{margin:0!important;border:0!important;background:#fff!important;padding:0!important}
+#student #studentMission>.kicker{font-size:11px;letter-spacing:.15em;color:#7e8cab;font-weight:900;margin-bottom:6px}
+#student #studentMission>h3{font-size:28px;line-height:1.1;letter-spacing:-.04em;color:var(--sd-text);margin:0 0 16px}
+#student .mission-slider{border:1px solid var(--sd-line);border-radius:22px;background:#fff;overflow:hidden;margin-top:0}
+#student .mission-slider-head{padding:10px 14px;border-bottom:1px solid var(--sd-line);background:#fbfdff}
+#student .mission-slide-card{padding:20px;display:grid;grid-template-columns:minmax(260px,1.02fr) minmax(260px,.98fr);column-gap:24px;align-items:start}
+#student .mission-slide-card::before{content:"";grid-column:1;grid-row:1 / span 4;min-height:330px;border-radius:20px;border:1px solid #d9e6fa;background:radial-gradient(circle at 22% 25%,rgba(47,128,255,.24),transparent 20%),radial-gradient(circle at 78% 72%,rgba(39,176,103,.18),transparent 18%),linear-gradient(145deg,#dcecff,#f9fcff 58%,#eef4ff)}
+#student .mission-slide-card>*{grid-column:2}
+#student .mission-slide-meta{margin-bottom:8px}.mission-slide-step{background:#eef4ff!important;color:#4565b7!important;font-size:11px!important}
+#student .mission-slide-title{font-size:20px;line-height:1.18;color:var(--sd-text);margin:4px 0 10px;font-weight:900}
+#student .mission-slide-text{font-size:16px;line-height:1.72;color:#334667}
+#student .mission-slide-footer{padding:12px 14px;background:#fbfdff;border-top:1px solid var(--sd-line)}
+#student .mission-dot{width:10px;height:10px;background:#d3dceb}.mission-dot.active{background:var(--sd-blue)!important}
+#student .mission-question{margin-top:16px;border:1px solid #d7e7ff;background:#f5f9ff;border-radius:19px;padding:16px 18px}
+#student .mission-question strong{font-size:11px;color:#3567d7;letter-spacing:.1em}.mission-question p{font-size:17px!important;line-height:1.5!important;color:var(--sd-text)!important;font-weight:850!important}
+#student .student-native-progress{display:none!important}
+
+/* Role and tools. */
+#student .student-discussion-shell{display:grid;grid-template-columns:minmax(0,1.18fr) minmax(280px,.82fr);gap:16px}
+#student .student-role-panel,#student .student-tools-panel{border:1px solid var(--sd-line);border-radius:21px;background:#fff;padding:20px}
+#student .student-role-summary{display:flex;gap:15px;align-items:flex-start}
+#student .student-role-avatar{width:66px;height:66px;flex:0 0 66px;border-radius:50%;display:grid;place-items:center;font-size:25px;font-weight:950;color:#276fd5;background:#eaf3ff}
+#student .student-role-badge{display:inline-flex;padding:5px 10px;border-radius:999px;background:#edf4ff;color:#2876e7;font-size:11px;font-weight:900;margin-bottom:7px}
+#student .student-role-summary h3{margin:0 0 5px;font-size:18px;color:var(--sd-text)}
+#student .student-role-summary p{margin:0;color:#566885;font-size:13px;line-height:1.55}
+#student .student-role-note{margin-top:15px;padding:13px 14px;border-radius:15px;background:#f5f8ff;border:1px solid #e0e8f6;color:#536480;font-size:13px;line-height:1.55}
+#student .student-role-tasks{margin-top:17px;padding-top:16px;border-top:1px solid var(--sd-line)}
+#student .student-role-tasks h4,#student .student-tools-panel h4{margin:0 0 11px;color:var(--sd-text);font-size:15px}
+#student .student-role-tasks ul{list-style:none;padding:0;margin:0;display:grid;gap:9px}
+#student .student-role-tasks li{position:relative;padding-left:30px;color:#485a79;font-size:13px;line-height:1.45}
+#student .student-role-tasks li::before{content:"";position:absolute;left:0;top:0;width:19px;height:19px;border-radius:6px;border:2px solid #b9cbed;background:#fff}
+#student .student-role-status{margin-top:16px;display:inline-flex;padding:9px 12px;border-radius:999px;background:var(--sd-green-soft);color:#177446;font-size:12px;font-weight:850}
+#student .student-tools-mini{display:grid;gap:9px;margin-bottom:13px}
+#student .student-tool-mini{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:11px 12px;border:1px solid var(--sd-line);border-radius:15px;background:#fbfcff}
+#student .student-tool-mini strong{display:block;font-size:13px;color:var(--sd-text)}
+#student .student-tool-mini span{display:block;font-size:11px;color:var(--sd-muted)}
+#student .student-tool-mini .student-tool-state{font-size:10px;font-weight:900;color:#2876e7;white-space:nowrap}
+#student .student-tools-open{width:100%;border-radius:15px;padding:12px;font-size:13px}
+
+/* Answer. */
+#student .student-answer-shell h3{margin:0;font-size:27px;color:var(--sd-text);letter-spacing:-.035em}
+#student .student-answer-sub{margin:5px 0 18px;color:var(--sd-muted);font-size:14px}
+#student .answer-permission{border-radius:15px;padding:12px 14px;font-size:13px;margin-bottom:12px}
+#student #choiceArea{display:grid;gap:11px}
+#student #choiceArea .option{display:block;text-align:left;border:1.5px solid #dbe4f0;border-radius:17px;background:#fff;padding:15px 16px;color:var(--sd-text);font-size:15px;font-weight:850;transition:.18s ease}
+#student #choiceArea .option.active{border-color:#6aa9ff;background:#f4f8ff;box-shadow:0 7px 18px rgba(47,128,255,.1)}
+#student .student-answer-shell label{display:block;margin-top:16px;color:var(--sd-text);font-size:14px;font-weight:850}
+#student #reasonInput{width:100%;min-height:126px;margin-top:8px;border:1px solid #d8e2ef;border-radius:17px;padding:14px 15px;font-size:15px;line-height:1.6;background:#fff;color:#2d4163}
+#student .student-answer-actions{display:grid;grid-template-columns:minmax(180px,.55fr) minmax(240px,1fr);gap:12px;margin-top:16px}
+#student .student-answer-actions .btn{min-height:49px;border-radius:15px}
+#student .student-answer-waiting{padding:20px;border:1px dashed #d3dfef;border-radius:17px;background:#fbfdff;text-align:center;color:var(--sd-muted);font-size:13px}
+
+/* Chat styles actual markup from index.html. */
+#student .group-chat-head{padding:19px 19px 15px;border-bottom:1px solid var(--sd-line);background:#fff}
+#student .group-chat-title{display:flex;align-items:flex-start;justify-content:space-between;gap:10px}
+#student .group-chat-title h3{margin:0;font-size:20px;color:var(--sd-text)}
+#student .group-chat-sub{margin-top:4px;color:var(--sd-muted);font-size:11px;line-height:1.4}
+#student .chat-live{display:inline-flex;align-items:center;gap:7px;padding:8px 12px;border-radius:999px;background:var(--sd-green-soft);color:#168550;font-size:11px;font-weight:950;letter-spacing:.05em}
+#student .chat-live::before{content:"";width:8px;height:8px;border-radius:50%;background:#22ad67}
+#student #chatTeamStrip{display:none!important}
+#student .side-info-compact{display:none!important}
+#student .group-chat-messages{flex:1;min-height:430px;max-height:560px;padding:16px 18px;overflow:auto;background:#fff}
+#student .chat-date{text-align:center;margin:8px 0 13px;color:#93a0b7;font-size:10px;font-weight:800}
+#student .chat-row{max-width:86%;margin:0 0 13px;display:grid;grid-template-columns:1fr auto;gap:3px 9px;align-items:end}
+#student .chat-row.me{margin-left:auto}.chat-sender{grid-column:1 / -1;font-size:11px;font-weight:850;color:#334a74;margin-left:3px}
+#student .chat-bubble{grid-column:1;padding:11px 13px;border-radius:15px 15px 15px 5px;background:#f3f6fa;border:1px solid #e6ecf4;color:#344766;font-size:13px;line-height:1.55;word-break:break-word}
+#student .chat-row.me .chat-bubble{background:#eef6ff;border-color:#d8e8ff;border-radius:15px 15px 5px 15px}
+#student .chat-time{grid-column:2;color:#91a0b8;font-size:9px;padding-bottom:3px}
+#student .group-chat-compose{padding:14px 16px 16px;border-top:1px solid var(--sd-line);background:#fff}
+#student .chat-input-row{display:grid;grid-template-columns:1fr 82px;gap:9px}
+#student #groupChatInput{min-height:50px;max-height:110px;border:1px solid #d5dfed;border-radius:15px;padding:13px 14px;font-size:13px;background:#fff}
+#student .chat-send{border:0;border-radius:15px;background:linear-gradient(135deg,var(--sd-blue2),var(--sd-blue));color:#fff;font-size:13px;font-weight:900;cursor:pointer;box-shadow:0 8px 18px rgba(47,128,255,.2)}
+#student .chat-hint{margin-top:6px;color:#98a5b9;font-size:9px}
+
+/* Role tools modal. */
+body.student-tools-open{overflow:hidden}
+.student-tools-backdrop{position:fixed;inset:0;z-index:1300;background:rgba(20,34,62,.27);opacity:0;visibility:hidden;transition:opacity .2s ease,visibility .2s ease}
+.student-tools-modal{position:fixed;z-index:1301;left:50%;top:50%;width:min(760px,calc(100vw - 30px));max-height:82vh;overflow:auto;transform:translate(-50%,-47%);opacity:0;visibility:hidden;background:#fff;border:1px solid var(--sd-line);border-radius:26px;box-shadow:0 30px 90px rgba(22,39,72,.25);padding:20px;transition:transform .24s cubic-bezier(.2,.8,.2,1),opacity .2s ease,visibility .2s ease}
+body.student-tools-open .student-tools-backdrop,body.student-tools-open .student-tools-modal{opacity:1;visibility:visible}
+body.student-tools-open .student-tools-modal{transform:translate(-50%,-50%)}
+.student-tools-modal-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px}.student-tools-modal-head h3{margin:0;color:var(--sd-text);font-size:24px}.student-tools-close{width:38px;height:38px;border:1px solid var(--sd-line);border-radius:12px;background:#fff;color:#50617f;font-size:22px;cursor:pointer}
+.student-tools-modal-body .role-toolbox{display:block!important;border:0!important;padding:0!important;background:transparent!important;margin:0!important}
+.student-tools-modal-body .role-toolbox-head{display:none!important}.student-tools-modal-body .role-tool-grid{grid-template-columns:1fr!important;gap:10px!important}.student-tools-modal-body .role-tool-card{border-radius:17px!important;padding:15px!important;background:#fbfcff!important;border-color:var(--sd-line)!important}.student-tools-modal-body .role-tool-card h5{font-size:15px!important}.student-tools-modal-body .role-tool-card p,.student-tools-modal-body .role-mini-row{font-size:12px!important}.student-tools-modal-body .role-tool-card textarea,.student-tools-modal-body .role-tool-card input,.student-tools-modal-body .role-tool-card select{font-size:13px!important;border-radius:12px!important}
+.student-tools-modal-body .ai-inline-card{display:block;margin-top:12px;border-radius:17px}.student-tools-modal-body .ai-inline-card.hidden{display:none!important}
+.student-tools-empty{padding:24px;border:1px dashed #d5dfed;border-radius:17px;text-align:center;color:var(--sd-muted);font-size:13px;background:#fbfdff}
+
+@keyframes sdFade{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:1180px){
+  body.student-shell-active .topbar{align-items:flex-start}.student-header-status{width:100%;justify-content:flex-start}.student-head-chip{flex:1;min-width:112px}
+  #student .student-game-layout{grid-template-columns:1fr}#student .student-chat-card{min-height:570px}
+}
+@media(max-width:820px){
+  body.student-shell-active .topbar{flex-direction:column}.student-head-leave{min-height:52px}.student-header-status{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))}.student-head-leave{grid-column:1/-1}
+  #student .mission-slide-card{grid-template-columns:1fr}.mission-slide-card::before{grid-row:auto!important;min-height:210px!important}.mission-slide-card>*{grid-column:1!important}
+  #student .student-discussion-shell{grid-template-columns:1fr}.student-answer-actions{grid-template-columns:1fr!important}
+}
+@media(max-width:560px){
+  #student .student-tabs{grid-template-columns:1fr;gap:6px}.student-tab-panel{padding:15px!important}.student-header-status{grid-template-columns:1fr!important}.student-head-leave{grid-column:auto}.student-head-chip{min-width:0}
+}
+@media(prefers-reduced-motion:reduce){#student *,body.student-tools-open *{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+body.student-shell-active #aiFab{display:none!important}
+
+/* === MATCH REFERENCE — desktop composition === */
+body.student-shell-active .app{max-width:1600px;padding-left:22px;padding-right:22px}
+body.student-shell-active .footer{display:none!important}
+#student{padding-top:10px}
+
+/* Critical fix: the old inline grid-column spans fought the 2-column layout. */
+#student .student-game-layout{
+  display:grid!important;
+  grid-template-columns:minmax(0,1.82fr) minmax(350px,.92fr)!important;
+  gap:18px!important;
+  align-items:stretch!important;
+}
+#student .student-game-layout>.student-stage-card{grid-column:1!important;min-width:0}
+#student .student-game-layout>.student-chat-card{grid-column:2!important;min-width:0}
+
+/* Top app bar closer to supplied reference. */
+body.student-shell-active .topbar{padding:10px 0 14px;border-bottom:1px solid #e5ebf4}
+body.student-shell-active .brand{gap:14px}
+body.student-shell-active .brand .logo{width:52px;height:52px;border-radius:16px}
+body.student-shell-active .brand h1{font-size:27px;letter-spacing:-.045em}
+body.student-shell-active .brand p{font-size:14px;margin-top:4px;color:#7786a5}
+body.student-shell-active .student-header-status{gap:9px;align-items:stretch;flex-wrap:nowrap}
+body.student-shell-active .student-head-chip{min-width:112px;border-radius:17px;padding:10px 14px;background:#fff}
+body.student-shell-active .student-head-group{min-width:180px}
+body.student-shell-active .student-head-chip span{font-size:9px}
+body.student-shell-active .student-head-chip strong{font-size:16px}
+body.student-shell-active .student-head-timer{min-width:116px}
+body.student-shell-active .student-head-score{min-width:108px}
+body.student-shell-active .student-head-leave{min-width:96px;border-radius:17px}
+
+#student .student-stage-card,#student .student-chat-card{border-radius:22px!important;box-shadow:0 12px 34px rgba(38,58,101,.065)!important}
+#student .student-stage-card{min-height:690px}
+#student .student-chat-card{
+  min-height:690px!important;
+  height:calc(100vh - 175px);
+  max-height:770px;
+  position:sticky;
+  top:12px;
+}
+
+/* Tabs occupy only the left content card. */
+#student .student-tabs{padding:9px;gap:8px;border-bottom:1px solid #e4ebf5;background:#fbfdff}
+#student .student-tab-btn{min-height:52px;font-size:16px;border-radius:14px}
+#student .student-tab-btn.active{background:linear-gradient(135deg,#4fa5ff,#2d7ef8);box-shadow:0 8px 18px rgba(47,128,255,.2)}
+#student .student-tab-panel{padding:20px 22px 22px}
+
+/* Case reader proportions from the reference. */
+#student #studentMission>.kicker{font-size:12px;letter-spacing:.14em;margin-bottom:7px}
+#student #studentMission>h3{font-size:30px;margin-bottom:18px}
+#student .mission-slider{border:0!important;overflow:visible;background:transparent}
+#student .mission-slider-head{display:none!important}
+#student .mission-slide-card{
+  padding:0!important;
+  display:grid!important;
+  grid-template-columns:minmax(300px,1.06fr) minmax(280px,.94fr)!important;
+  grid-template-rows:auto auto 1fr!important;
+  column-gap:28px!important;
+  row-gap:0!important;
+  align-items:start!important;
+}
+#student .mission-slide-card::before{
+  grid-column:1!important;
+  grid-row:1 / span 3!important;
+  min-height:340px!important;
+  border-radius:20px!important;
+  border:1px solid #d7e4f7!important;
+  background:
+    linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.06)),
+    radial-gradient(circle at 72% 25%,rgba(78,168,255,.22),transparent 18%),
+    radial-gradient(circle at 30% 72%,rgba(255,171,88,.2),transparent 24%),
+    linear-gradient(145deg,#dcecff,#f8fbff 58%,#eef3fb)!important;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.7)
+}
+#student .mission-slide-card>*{grid-column:2!important}
+#student .mission-slide-meta{grid-row:1;margin:0 0 8px!important}
+#student .mission-slide-title{grid-row:2;font-size:21px!important;margin:2px 0 10px!important}
+#student .mission-slide-text{grid-row:3;font-size:17px!important;line-height:1.7!important;color:#314565!important}
+#student .mission-slide-footer{margin-top:20px;padding:0!important;border-top:0!important;background:transparent!important}
+#student .mission-question{margin-top:18px!important;border-radius:18px!important;padding:17px 20px!important;background:#f4f8ff!important}
+#student .mission-question strong{font-size:11px!important}
+#student .mission-question p{font-size:18px!important;line-height:1.5!important}
+
+/* Roles across the top, like the reference mock-up. */
+#student .student-role-strip{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:10px;
+  margin:0 0 16px;
+}
+#student .student-role-card{
+  position:relative;
+  min-height:116px;
+  border:1px solid #dfe7f3;
+  border-radius:15px;
+  background:#fff;
+  padding:18px 13px 12px;
+  overflow:hidden;
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+#student .student-role-card::before{content:"";position:absolute;left:12px;right:12px;top:10px;height:8px;border-radius:99px;background:var(--role-accent,#8cbcff);opacity:.72}
+#student .student-role-card.mine{border-color:#3b8cff;box-shadow:0 0 0 1px #3b8cff inset,0 8px 18px rgba(47,128,255,.09)}
+#student .student-role-card strong{display:block;margin-top:12px;font-size:14px;color:#142653;line-height:1.25}
+#student .student-role-card span{display:block;margin-top:6px;font-size:11px;line-height:1.4;color:#7786a3}
+#student .student-role-card small{display:block;margin-top:7px;font-size:10px;font-weight:800;color:#3976db}
+#student .student-discussion-shell{grid-template-columns:minmax(0,1.28fr) minmax(280px,.72fr)!important;gap:16px!important}
+#student .student-role-panel,#student .student-tools-panel{border-radius:18px;padding:18px}
+#student .student-role-avatar{width:72px;height:72px;flex-basis:72px;font-size:28px}
+#student .student-role-summary h3{font-size:19px}
+#student .student-role-summary p{font-size:14px}
+#student .student-role-tasks li{font-size:14px}
+
+/* Answer view. */
+#student .student-answer-shell h3{font-size:29px}
+#student .student-answer-sub{font-size:15px;margin-bottom:20px}
+#student #choiceArea .option{min-height:78px;padding:17px 20px;border-radius:18px;font-size:17px}
+#student #reasonInput{min-height:138px;font-size:16px;border-radius:17px}
+#student .student-answer-actions .btn{min-height:54px;font-size:15px}
+
+/* Right chat card: fixed visual hierarchy, avatars, full-height conversation. */
+#student .group-chat-head{padding:20px 20px 16px}
+#student .group-chat-title h3{font-size:23px;letter-spacing:-.025em}
+#student .group-chat-sub{font-size:13px;margin-top:3px}
+#student .chat-live{padding:10px 14px;font-size:12px}
+#student .group-chat-messages{flex:1!important;min-height:0!important;max-height:none!important;padding:18px 18px 8px!important;overflow:auto!important}
+#student .chat-date{margin:5px 0 15px}
+#student .chat-row{
+  max-width:100%!important;
+  display:grid!important;
+  grid-template-columns:52px minmax(0,1fr)!important;
+  gap:10px!important;
+  align-items:start!important;
+  margin:0 0 17px!important;
+}
+#student .chat-row.me{margin-left:0!important}
+#student .chat-avatar{
+  width:52px;height:52px;border-radius:50%;display:grid;place-items:center;
+  background:#eaf3ff;color:#2774e6;font-size:18px;font-weight:950;
+  border:1px solid #dce8fa
+}
+#student .chat-row:nth-of-type(3n) .chat-avatar{background:#f0eaff;color:#7658ee}
+#student .chat-row:nth-of-type(4n) .chat-avatar{background:#ffeaf1;color:#df4f82}
+#student .chat-content{min-width:0}
+#student .chat-meta-line{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:1px 2px 7px}
+#student .chat-sender{font-size:13px!important;font-weight:900!important;color:#172a58!important;margin:0!important}
+#student .chat-row.me .chat-sender{color:#2678eb!important}
+#student .chat-sender b{font-weight:900}
+#student .chat-time{font-size:11px!important;color:#8492af!important;padding:0!important;white-space:nowrap}
+#student .chat-bubble{
+  display:block!important;
+  padding:13px 15px!important;
+  border:0!important;
+  border-radius:16px!important;
+  background:#f4f6fa!important;
+  color:#334868!important;
+  font-size:15px!important;
+  line-height:1.55!important;
+}
+#student .chat-row.me .chat-bubble{background:#eef6ff!important}
+#student .group-chat-compose{padding:14px 16px 16px!important}
+#student .chat-input-row{grid-template-columns:minmax(0,1fr) 82px!important;gap:9px!important}
+#student #groupChatInput{min-height:54px!important;font-size:14px!important}
+#student .chat-send{font-size:14px!important}
+
+/* Keep desktop two-column layout until a genuinely small viewport. */
+@media (max-width:1180px) and (min-width:921px){
+  body.student-shell-active .topbar{align-items:center!important}
+  body.student-shell-active .student-header-status{width:auto!important;justify-content:flex-end!important;flex-wrap:wrap!important}
+  #student .student-game-layout{grid-template-columns:minmax(0,1.7fr) minmax(330px,.9fr)!important}
+  #student .student-chat-card{min-height:650px!important;height:calc(100vh - 165px)!important}
+  #student .mission-slide-card{grid-template-columns:minmax(250px,1fr) minmax(250px,1fr)!important}
+}
+@media(max-width:920px){
+  #student .student-game-layout{grid-template-columns:1fr!important}
+  #student .student-game-layout>.student-stage-card,#student .student-game-layout>.student-chat-card{grid-column:1!important}
+  #student .student-chat-card{position:static!important;height:auto!important;max-height:none!important;min-height:560px!important}
+  #student .mission-slide-card{grid-template-columns:1fr!important}
+  #student .mission-slide-card::before{grid-column:1!important;grid-row:auto!important;min-height:220px!important;margin-bottom:15px}
+  #student .mission-slide-card>*{grid-column:1!important}
+  #student .student-discussion-shell{grid-template-columns:1fr!important}
+}
+@media(max-width:700px){
+  body.student-shell-active .student-header-status{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;width:100%!important}
+  body.student-shell-active .student-head-group{min-width:0!important}
+  body.student-shell-active .student-head-leave{grid-column:1/-1}
+  #student .student-role-strip{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+#student #studentMission::before{display:none!important}
+#student .student-tab-panel[data-tab="case"] #studentMission{min-height:0!important}
+
+
+/* =========================================================
+   FIX FINAL — CASE IMAGE LEFT WITHOUT BREAKING DISCUSSION UI
+   Menjaga seluruh styling Diskusi & Peran tetap seperti versi referensi,
+   sambil menempatkan gambar AI di kolom kiri dan teks di kanan.
+   ========================================================= */
+
+#student .mission-slide-card{
+  display:block!important;
+  padding:0!important;
+}
+
+/* Hapus placeholder dekoratif lama yang sebelumnya mengisi kolom kiri */
+#student .mission-slide-card::before{
+  content:none!important;
+  display:none!important;
+}
+
+/* Jangan paksa seluruh child slide ke kolom kanan */
+#student .mission-slide-card>*{
+  grid-column:auto!important;
+  grid-row:auto!important;
+}
+
+#student .mission-slide-meta{
+  margin:0 0 12px!important;
+}
+
+#student .mission-slide-layout{
+  display:grid!important;
+  grid-template-columns:minmax(320px,1.06fr) minmax(280px,.94fr)!important;
+  gap:28px!important;
+  align-items:start!important;
+}
+
+#student .mission-slide-media{
+  grid-column:1!important;
+  min-width:0!important;
+  width:100%!important;
+  overflow:hidden!important;
+  border:1px solid #d7e4f7!important;
+  border-radius:20px!important;
+  background:linear-gradient(145deg,#dcecff,#f8fbff 58%,#eef3fb)!important;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.7)!important;
+}
+
+#student .mission-slide-media img{
+  display:block!important;
+  width:100%!important;
+  aspect-ratio:4/3!important;
+  object-fit:cover!important;
+}
+
+#student .mission-slide-caption{
+  padding:9px 12px!important;
+  border-top:1px solid #dfe7f3!important;
+  background:#fff!important;
+  color:#64748b!important;
+  font-size:10px!important;
+  font-weight:800!important;
+}
+
+#student .mission-no-image{
+  min-height:340px!important;
+  aspect-ratio:4/3!important;
+}
+
+#student .mission-slide-copy{
+  grid-column:2!important;
+  min-width:0!important;
+}
+
+#student .mission-slide-title{
+  font-size:21px!important;
+  line-height:1.18!important;
+  margin:2px 0 10px!important;
+}
+
+#student .mission-slide-text{
+  font-size:17px!important;
+  line-height:1.7!important;
+  color:#314565!important;
+}
+
+@media(max-width:900px){
+  #student .mission-slide-layout{
+    grid-template-columns:1fr!important;
+    gap:16px!important;
+  }
+
+  #student .mission-slide-media,
+  #student .mission-slide-copy{
+    grid-column:1!important;
+  }
+
+  #student .mission-slide-media img,
+  #student .mission-no-image{
+    aspect-ratio:16/10!important;
+  }
+}
+
+
+/* =========================================================
+   AUTO CHECKLIST ROLE — completed automatically from activity
+   ========================================================= */
+#student .student-role-tasks li{
+  transition:color .18s ease,opacity .18s ease;
+}
+
+#student .student-role-tasks li::before{
+  display:grid!important;
+  place-items:center!important;
+  box-sizing:border-box!important;
+  color:#fff!important;
+  font-size:13px!important;
+  font-weight:950!important;
+  line-height:1!important;
+  transition:background .18s ease,border-color .18s ease,transform .18s ease,box-shadow .18s ease!important;
+}
+
+#student .student-role-tasks li.done{
+  color:#1f6a45!important;
+}
+
+#student .student-role-tasks li.done::before{
+  content:"✓"!important;
+  background:#22c55e!important;
+  border-color:#22c55e!important;
+  box-shadow:0 4px 10px rgba(34,197,94,.18)!important;
+  transform:scale(1.02)!important;
+}
+
+#student .student-role-tasks li.done .student-task-label{
+  text-decoration:none;
+}
+
+#student .student-role-status{
+  display:flex!important;
+  align-items:center!important;
+  flex-wrap:wrap!important;
+  gap:2px!important;
+}
+
+#student .student-role-status strong{
+  color:#15803d!important;
+}
+
+/* =========================================================
+   PEER HELP + AI VALIDATION
+   ========================================================= */
+#student #roleValidationNotice{margin:0 0 12px}
+#student .peer-help-card{border-color:#d8e6ff!important;background:linear-gradient(135deg,#fbfdff,#f5f9ff)!important}
+#student .peer-help-card>textarea{min-height:64px!important}
+#student .peer-help-item{display:grid;gap:7px;margin-top:11px;padding:11px;border:1px solid #dfe7f3;border-radius:13px;background:#fff}
+#student .peer-help-item b{font-size:11px;color:#18315f}
+#student .peer-help-item span{font-size:10px;line-height:1.55;color:#61718c}
+#student .peer-help-item small{font-size:9px;font-weight:800;color:#4d73b9}
+#student .peer-help-item textarea{min-height:70px!important;margin:0!important}
+#student .peer-help-item.confirm{border-color:#ccebd7;background:#f8fffa}
+#student .activity-score.peer-help{color:#15803d}
