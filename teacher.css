@@ -1,0 +1,672 @@
+/*
+  DIGITAL MISSION — TEACHER UI
+  Elegant teacher-only visual layer.
+  Loaded after the main page so it can safely override the existing inline styles.
+*/
+
+:root{
+  --teacher-navy:#172033;
+  --teacher-text:#273142;
+  --teacher-muted:#738095;
+  --teacher-border:#e7ebf1;
+  --teacher-surface:#ffffff;
+  --teacher-soft:#f7f9fc;
+  --teacher-accent:#315ee8;
+  --teacher-accent-soft:#eef3ff;
+  --teacher-violet:#6d56d8;
+  --teacher-success:#16885a;
+  --teacher-danger:#c84242;
+  --teacher-shadow:0 16px 42px rgba(26,38,64,.07);
+  --teacher-shadow-hover:0 20px 52px rgba(26,38,64,.10);
+  --teacher-ease:cubic-bezier(.22,.8,.22,1);
+}
+
+body.teacher-shell-active{
+  background:
+    radial-gradient(circle at 12% 0%,rgba(49,94,232,.055),transparent 30%),
+    radial-gradient(circle at 92% 8%,rgba(109,86,216,.045),transparent 25%),
+    #f7f9fc;
+}
+
+body.teacher-shell-active .colorbar{
+  height:3px;
+  opacity:.72;
+  background:linear-gradient(90deg,#315ee8 0 52%,#6d56d8 52% 72%,#d8dee8 72% 100%);
+}
+
+/* Teacher shell */
+#teacher{
+  color:var(--teacher-text);
+}
+
+#teacher .toolbar{
+  position:sticky;
+  top:10px;
+  z-index:30;
+  padding:10px 12px;
+  margin-bottom:14px;
+  border:1px solid rgba(225,230,238,.88);
+  border-radius:18px;
+  background:rgba(255,255,255,.88);
+  box-shadow:0 10px 28px rgba(28,38,60,.06);
+}
+
+#teacher .toolbar .room-chip{
+  background:transparent;
+  border:0;
+  box-shadow:none;
+  padding:4px 8px;
+}
+
+#teacher .toolbar .room-chip span{
+  letter-spacing:.1em;
+  color:#8b95a6;
+}
+
+#teacher .toolbar .room-chip strong{
+  color:var(--teacher-navy);
+  letter-spacing:-.015em;
+}
+
+#teacher .stats{
+  gap:12px;
+  margin-bottom:16px;
+}
+
+#teacher .stat{
+  min-height:94px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  padding:17px 18px;
+  border:1px solid var(--teacher-border);
+  border-radius:18px;
+  box-shadow:0 8px 24px rgba(31,45,72,.045);
+  background:linear-gradient(155deg,#fff 0%,#fbfcfe 100%);
+  transition:transform .28s var(--teacher-ease),box-shadow .28s var(--teacher-ease),border-color .28s ease;
+}
+
+#teacher .stat::before{
+  left:17px;
+  top:14px;
+  bottom:auto;
+  width:24px;
+  height:3px;
+  border-radius:999px;
+  opacity:.88;
+}
+
+#teacher .stat:hover{
+  transform:translateY(-2px);
+  box-shadow:0 13px 31px rgba(31,45,72,.07);
+  border-color:#dde3ec;
+}
+
+#teacher .stat span{
+  margin-top:9px;
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  color:var(--teacher-muted);
+}
+
+#teacher .stat strong{
+  margin-top:5px;
+  font-size:28px;
+  color:var(--teacher-navy);
+  font-variant-numeric:tabular-nums;
+}
+
+#teacher .grid{
+  gap:15px;
+}
+
+#teacher .card{
+  border:1px solid var(--teacher-border);
+  border-radius:20px;
+  box-shadow:var(--teacher-shadow);
+  background:rgba(255,255,255,.985);
+  transition:transform .3s var(--teacher-ease),box-shadow .3s var(--teacher-ease),border-color .3s ease;
+}
+
+#teacher .card:hover{
+  border-color:#dfe4ec;
+  box-shadow:var(--teacher-shadow-hover);
+}
+
+#teacher .section-title h3,
+#teacher .case-launcher-copy h3,
+#teacher .activity-eval-toolbar h3{
+  color:var(--teacher-navy);
+  letter-spacing:-.025em;
+}
+
+#teacher .section-title .tagline,
+#teacher .case-launcher-copy p,
+#teacher .activity-eval-toolbar .tagline{
+  color:var(--teacher-muted);
+}
+
+/* Buttons: calmer, more professional */
+#teacher .btn,
+body.teacher-shell-active #caseDrawer .btn{
+  border-radius:11px;
+  font-weight:760;
+  letter-spacing:-.005em;
+  box-shadow:none;
+  transition:transform .2s var(--teacher-ease),box-shadow .2s ease,background-color .2s ease,border-color .2s ease,filter .2s ease;
+}
+
+#teacher .btn:hover,
+body.teacher-shell-active #caseDrawer .btn:hover{
+  transform:translateY(-1px);
+}
+
+#teacher .btn.primary,
+#teacher .btn.purple,
+body.teacher-shell-active #caseDrawer .btn.purple{
+  background:linear-gradient(135deg,var(--teacher-accent),#526fdd);
+  color:#fff;
+  box-shadow:0 8px 18px rgba(49,94,232,.16);
+}
+
+#teacher .btn.green{
+  background:#1b8b61;
+}
+
+#teacher .btn.red{
+  background:#c84b4b;
+}
+
+#teacher .btn.yellow{
+  background:#fff8dc;
+  color:#745c10;
+  border:1px solid #eadca2;
+}
+
+#teacher .btn.soft-orange{
+  background:#fff8ef;
+  color:#9a5a16;
+  border-color:#f0dfca;
+}
+
+#teacher .btn.soft-green{
+  background:#eef8f3;
+  color:#267354;
+  border-color:#d8ebe2;
+}
+
+#teacher .btn.soft-red{
+  background:#fff5f5;
+  color:#a83f3f;
+  border-color:#efdddd;
+}
+
+#teacher .btn.secondary{
+  background:#fff;
+  color:#445063;
+  border:1px solid #dfe4eb;
+}
+
+/* Team setup */
+#teacher .team-setup{
+  padding:12px;
+  margin-bottom:12px;
+  border:1px solid #e6eaf0;
+  border-radius:15px;
+  background:#f8fafc;
+}
+
+#teacher .team-setup label{
+  color:#687386;
+}
+
+#teacher .team-setup select{
+  border-radius:10px;
+  background:#fff;
+}
+
+#teacher .team-phase{
+  background:#f2f5fa;
+  color:#667085;
+  border:1px solid #e2e7ee;
+  padding:7px 10px;
+}
+
+#teacher .teacher-controls{
+  gap:8px;
+  margin-bottom:12px;
+}
+
+/* Mission */
+#teacher .mission{
+  border:1px solid #e1e7f0;
+  border-radius:17px;
+  background:linear-gradient(145deg,#fff 0%,#f9fbff 100%);
+  box-shadow:inset 3px 0 0 rgba(49,94,232,.82);
+}
+
+#teacher .mission::before{
+  display:none;
+}
+
+#teacher .mission .kicker{
+  color:#66759a;
+  letter-spacing:.11em;
+}
+
+#teacher .mission h3{
+  color:var(--teacher-navy);
+}
+
+#teacher .mission p{
+  color:#525f72;
+}
+
+#teacher .timer{
+  color:var(--teacher-navy);
+  font-size:30px;
+  font-variant-numeric:tabular-nums;
+}
+
+#teacher .timer.danger{
+  color:var(--teacher-danger);
+}
+
+#teacher .progress{
+  height:6px;
+  background:#eef1f5;
+}
+
+#teacher .progress>div{
+  background:linear-gradient(90deg,#315ee8,#6d56d8);
+}
+
+/* Cleaner learner/team list */
+#teacher .student-roster{
+  gap:7px;
+}
+
+#teacher .student-roster-chip{
+  position:relative;
+  padding:8px 11px 8px 22px;
+  border-color:#e3e7ed;
+  background:#f8fafc;
+  color:#455165;
+}
+
+#teacher .student-roster-chip::before{
+  content:"";
+  position:absolute;
+  left:9px;
+  top:50%;
+  width:6px;
+  height:6px;
+  margin-top:-3px;
+  border-radius:50%;
+  background:#8fa0b8;
+}
+
+#teacher .groups{
+  gap:10px;
+}
+
+#teacher .group{
+  border-color:#e5e9ef;
+  border-radius:15px;
+  box-shadow:none;
+  background:#fff;
+  transition:transform .22s var(--teacher-ease),border-color .22s ease,box-shadow .22s ease;
+}
+
+#teacher .group:hover{
+  transform:translateY(-1px);
+  border-color:#dce2ea;
+  box-shadow:0 9px 24px rgba(30,43,68,.055);
+}
+
+#teacher .group::before{
+  height:3px;
+  opacity:.72;
+}
+
+#teacher .score{
+  font-variant-numeric:tabular-nums;
+}
+
+/* Leaderboard */
+#teacher .leaderboard th{
+  color:#8a94a4;
+  text-transform:uppercase;
+  letter-spacing:.06em;
+  font-size:9px;
+}
+
+#teacher .leaderboard td{
+  border-color:#edf0f4;
+}
+
+#teacher .rank{
+  color:#69758a;
+}
+
+/* AI case launcher */
+#teacher .case-launcher{
+  padding:4px 2px;
+}
+
+#teacher .case-launcher-icon{
+  width:45px;
+  height:45px;
+  flex-basis:45px;
+  border-radius:14px;
+  background:linear-gradient(145deg,#eef3ff,#f5f2ff);
+  border:1px solid #e2e6f2;
+  color:#485b93;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.08em;
+}
+
+#teacher .case-source-badge{
+  background:#f5f7fa;
+  border-color:#e3e7ed;
+  color:#697487;
+}
+
+#teacher .case-source-badge.ai{
+  background:#f1effd;
+  border-color:#e2ddf8;
+  color:#6554a8;
+}
+
+/* Analysis card */
+#teacher .activity-eval-card{
+  border-top:3px solid #e8ebf3;
+}
+
+#teacher .activity-eval-summary,
+#teacher .activity-empty,
+#teacher .notice{
+  border-radius:13px;
+}
+
+/* Case drawer */
+body.teacher-shell-active #caseDrawerBackdrop{
+  background:rgba(18,25,38,.28);
+  transition:opacity .28s ease,visibility .28s ease;
+}
+
+body.teacher-shell-active #caseDrawer{
+  border-radius:22px;
+  border-color:#e3e7ee;
+  box-shadow:0 30px 90px rgba(20,29,46,.24);
+  transform:translateX(calc(100% + 34px)) scale(.99);
+  transition:transform .42s var(--teacher-ease),opacity .26s ease,visibility .42s ease;
+}
+
+body.teacher-shell-active #caseDrawer.open{
+  transform:translateX(0) scale(1);
+}
+
+body.teacher-shell-active #caseDrawer .case-drawer-head{
+  padding:20px;
+  background:linear-gradient(150deg,#fff,#f8faff);
+}
+
+body.teacher-shell-active #caseDrawer .case-drawer-head h3{
+  color:var(--teacher-navy);
+  letter-spacing:-.025em;
+}
+
+body.teacher-shell-active #caseDrawer .case-drawer-section{
+  border-color:#e6eaf0;
+  background:#fafbfd;
+}
+
+body.teacher-shell-active #caseDrawer .case-drawer-section-title h4,
+body.teacher-shell-active #caseDrawer summary{
+  color:#303b4d;
+}
+
+body.teacher-shell-active #caseDrawer input,
+body.teacher-shell-active #caseDrawer select,
+body.teacher-shell-active #caseDrawer textarea{
+  border-color:#dfe4eb;
+  border-radius:10px;
+}
+
+body.teacher-shell-active #caseDrawer input:focus,
+body.teacher-shell-active #caseDrawer select:focus,
+body.teacher-shell-active #caseDrawer textarea:focus{
+  border-color:#9eb2ee;
+  box-shadow:0 0 0 4px rgba(49,94,232,.08);
+}
+
+body.teacher-shell-active #caseDrawer .case-preview-item{
+  border-color:#e5e9ef;
+  box-shadow:none;
+}
+
+/* Smooth but lightweight entry: one animation for the whole teacher panel. */
+@keyframes teacherShellIn{
+  from{opacity:.72;transform:translateY(4px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+#teacher.teacher-ui-active{
+  animation:teacherShellIn .24s var(--teacher-ease) both;
+}
+
+#teacher .teacher-button-pressed,
+body.teacher-shell-active #caseDrawer .teacher-button-pressed{
+  transform:scale(.98)!important;
+  transition-duration:.06s!important;
+}
+
+/* Respect accessibility preferences */
+@media (prefers-reduced-motion:reduce){
+  #teacher *,body.teacher-shell-active #caseDrawer *,body.teacher-shell-active #caseDrawerBackdrop{
+    animation-duration:.01ms!important;
+    animation-iteration-count:1!important;
+    transition-duration:.01ms!important;
+    scroll-behavior:auto!important;
+  }
+}
+
+@media(max-width:760px){
+  #teacher .toolbar{position:relative;top:auto}
+  #teacher .stats{grid-template-columns:repeat(2,1fr)}
+  #teacher .case-launcher{align-items:flex-start}
+}
+
+/* =========================================================
+   RESPONSIVE + PERFORMANCE FIX
+   ========================================================= */
+
+/* Prevent wide children from forcing the dashboard beyond viewport width. */
+#teacher,
+#teacher .grid,
+#teacher .card,
+#teacher .toolbar,
+#teacher .section-title,
+#teacher .team-setup,
+#teacher .teacher-controls,
+#teacher .case-launcher,
+#teacher .activity-eval-toolbar{
+  min-width:0;
+}
+
+#teacher .card,
+#teacher .mission,
+#teacher .activity-table-wrap,
+#teacher .leaderboard{
+  max-width:100%;
+}
+
+#teacher .activity-table-wrap{
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+
+#teacher .teacher-controls,
+#teacher .team-setup,
+#teacher .toolbar .left,
+#teacher .toolbar .right{
+  flex-wrap:wrap;
+}
+
+/* Tablets: use a single readable column for teacher cards. Inline grid-column
+   values in index.html are overridden intentionally here. */
+@media (max-width:960px){
+  #teacher .grid > .card{
+    grid-column:1 / -1 !important;
+  }
+
+  #teacher .groups{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+
+  #teacher .case-launcher{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  #teacher .case-launcher-actions{
+    width:100%;
+    justify-content:flex-start;
+  }
+}
+
+@media (max-width:760px){
+  body.teacher-shell-active{
+    background:#f7f9fc;
+  }
+
+  #teacher .toolbar{
+    position:relative;
+    top:auto;
+    padding:9px 10px;
+  }
+
+  #teacher .toolbar,
+  #teacher .toolbar .left,
+  #teacher .toolbar .right{
+    width:100%;
+  }
+
+  #teacher .toolbar .right{
+    justify-content:flex-start;
+  }
+
+  #teacher .stats{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:9px;
+  }
+
+  #teacher .stat{
+    min-height:82px;
+    padding:14px;
+  }
+
+  #teacher .stat strong{
+    font-size:24px;
+  }
+
+  #teacher .groups{
+    grid-template-columns:1fr;
+  }
+
+  #teacher .section-title,
+  #teacher .activity-eval-toolbar{
+    align-items:flex-start;
+    flex-direction:column;
+  }
+
+  #teacher .teacher-controls,
+  #teacher .team-setup{
+    align-items:stretch;
+  }
+
+  #teacher .teacher-controls .btn,
+  #teacher .team-setup .btn{
+    flex:1 1 145px;
+  }
+
+  #teacher .team-setup label{
+    flex:1 1 100%;
+    min-width:0;
+  }
+
+  #teacher .timer{
+    font-size:26px;
+  }
+
+  #teacher .mission{
+    padding:16px;
+  }
+
+  #teacher .mission h3{
+    font-size:20px;
+  }
+
+  /* Backdrop blur is expensive on some school PCs / integrated GPUs. */
+  body.teacher-shell-active #caseDrawerBackdrop{
+    backdrop-filter:none;
+    -webkit-backdrop-filter:none;
+    background:rgba(18,25,38,.34);
+  }
+
+  body.teacher-shell-active #caseDrawer{
+    top:8px;
+    right:8px;
+    bottom:8px;
+    width:calc(100vw - 16px);
+    max-width:none;
+    border-radius:18px;
+  }
+}
+
+@media (max-width:520px){
+  #teacher .stats{
+    grid-template-columns:1fr 1fr;
+  }
+
+  #teacher .card{
+    padding:15px;
+    border-radius:16px;
+  }
+
+  #teacher .case-launcher-actions{
+    align-items:stretch;
+    flex-direction:column;
+  }
+
+  #teacher .case-launcher-actions .btn,
+  #teacher .case-source-badge{
+    width:100%;
+    justify-content:center;
+  }
+
+  #teacher .teacher-controls .btn,
+  #teacher .team-setup .btn{
+    flex:1 1 100%;
+    width:100%;
+  }
+
+  #teacher .toolbar .left,
+  #teacher .toolbar .right{
+    gap:6px;
+  }
+}
+
+/* Hover transforms are unnecessary and can feel jittery on touch devices. */
+@media (hover:none), (pointer:coarse){
+  #teacher .card:hover,
+  #teacher .stat:hover,
+  #teacher .group:hover,
+  #teacher .btn:hover,
+  body.teacher-shell-active #caseDrawer .btn:hover{
+    transform:none;
+  }
+}
