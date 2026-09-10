@@ -1,0 +1,302 @@
+/* DIGITAL MISSION — Student dashboard (stable/static DOM version)
+   Scoped to student mode. No layout polling and no JS-dependent duplicate header. */
+:root{
+  --sd-bg:#f5f8fc;--sd-surface:#fff;--sd-line:#dce5f1;--sd-text:#10224f;--sd-muted:#7180a0;
+  --sd-blue:#2f80ff;--sd-blue2:#55a1ff;--sd-green:#22ad67;--sd-green-soft:#eaf8f0;
+  --sd-purple:#7658ee;--sd-shadow:0 16px 44px rgba(35,54,96,.08);--sd-radius:24px;
+}
+
+/* Re-use the original application header instead of creating a second brand header. */
+.student-header-status{display:none;align-items:stretch;gap:10px;flex-wrap:wrap;justify-content:flex-end}
+body.student-shell-active .topbar{align-items:center;gap:24px}
+body.student-shell-active #firebaseStatus,body.student-shell-active #networkStatus,body.student-shell-active #teacherHeaderProfile{display:none!important}
+body.student-shell-active .student-header-status{display:flex}
+body.student-shell-active .colorbar{display:none}
+body.student-shell-active .app{max-width:1540px}
+.student-head-chip{min-width:118px;padding:9px 13px;border:1px solid var(--sd-line);border-radius:16px;background:#fff;display:grid;align-content:center;gap:2px}
+.student-head-chip span{font-size:9px;font-weight:900;letter-spacing:.09em;text-transform:uppercase;color:var(--sd-muted)}
+.student-head-chip strong{font-size:15px;color:var(--sd-text);line-height:1.15}
+.student-head-chip small{font-size:10px;color:var(--sd-muted);font-weight:700}
+.student-head-timer{background:#eef6ff}.student-head-timer strong{font-size:21px;color:var(--sd-blue)}
+.student-head-score{background:var(--sd-green-soft)}.student-head-score strong{color:#176942}.student-head-score b{font-size:19px}
+.student-head-leave{min-width:88px;border:1px solid var(--sd-line);border-radius:16px;background:#fff;color:var(--sd-text);font-size:14px;font-weight:850;padding:0 15px;cursor:pointer;transition:transform .16s ease,background .16s ease}
+.student-head-leave:hover{background:#f7f9fd;transform:translateY(-1px)}
+
+#student{padding-top:18px}
+.student-runtime-data,.student-role-source,.student-tool-store{display:none!important}
+#student .student-waiting-card{border:1px solid var(--sd-line);border-radius:28px;background:#fff;box-shadow:var(--sd-shadow);padding:46px 24px;text-align:center}
+#student .student-waiting-mark{width:72px;height:72px;margin:0 auto 18px;border-radius:22px;background:#eef4ff;display:flex;align-items:flex-end;justify-content:center;gap:3px;padding:18px}
+#student .student-waiting-mark span{display:block;width:12px;border-radius:10px 10px 5px 5px;background:#72a7ff}.student-waiting-mark span:nth-child(1){height:21px}.student-waiting-mark span:nth-child(2){height:31px}.student-waiting-mark span:nth-child(3){height:24px}
+#student .student-waiting-card h2{font-size:27px;letter-spacing:-.035em;color:var(--sd-text);margin:0 0 9px}
+#student .student-waiting-card p{font-size:15px;color:var(--sd-muted);margin:0 auto 18px;max-width:680px;line-height:1.65}
+#student .waiting-count{display:inline-flex!important;border:0!important;border-radius:999px!important;background:var(--sd-green-soft)!important;color:#16814a!important;padding:9px 14px!important;font-weight:850!important}
+
+#student .student-game-layout{grid-template-columns:minmax(0,1.72fr) minmax(360px,.88fr);gap:18px;align-items:stretch}
+#student .student-stage-card,#student .student-chat-card{border:1px solid var(--sd-line)!important;border-radius:var(--sd-radius)!important;background:#fff!important;box-shadow:var(--sd-shadow)!important}
+#student .student-stage-card{padding:0!important;overflow:hidden}
+#student .student-chat-card{padding:0!important;overflow:hidden;display:flex;flex-direction:column;min-height:690px}
+
+/* Main three-tab workflow. */
+#student .student-tabs{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:0;padding:10px;border-bottom:1px solid var(--sd-line);background:#fbfdff}
+#student .student-tab-btn{border:0;border-radius:15px;background:transparent;padding:13px 10px;color:#415274;font-size:15px;font-weight:850;cursor:pointer;transition:background .2s ease,color .2s ease,transform .2s ease,box-shadow .2s ease}
+#student .student-tab-btn:hover{background:#f0f5fd}.student-tab-btn:active{transform:scale(.99)}
+#student .student-tab-btn.active{background:linear-gradient(135deg,var(--sd-blue2),var(--sd-blue));color:#fff;box-shadow:0 9px 20px rgba(47,128,255,.22)}
+#student .student-tab-panel{display:none;padding:22px;animation:sdFade .22s ease both}
+#student .student-tab-panel.active{display:block}
+#student .student-stage-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:16px}
+#student .student-stage-head h3{margin:0;font-size:22px;color:var(--sd-text);letter-spacing:-.025em}
+#student .student-stage-head p{margin:4px 0 0;font-size:13px;color:var(--sd-muted);line-height:1.5}
+
+/* Case reader. */
+#student #studentMission{margin:0!important;border:0!important;background:#fff!important;padding:0!important}
+#student #studentMission>.kicker{
+  font-size:12px;
+  letter-spacing:.14em;
+  margin-bottom:7px;
+}
+
+#student #studentMission>h3{
+  font-size:30px;
+  margin-bottom:18px;
+}
+
+#student .mission-slider{
+  border:0!important;
+  overflow:visible;
+  background:transparent;
+}
+
+#student .mission-slider-head{
+  display:none!important;
+}
+
+/* Layout slide siswa: gambar di kiri, bacaan di kanan */
+#student .mission-slide-card{
+  padding:0!important;
+  display:block!important;
+}
+
+/* Nonaktifkan placeholder dekoratif lama */
+#student .mission-slide-card::before{
+  content:none!important;
+  display:none!important;
+}
+
+/* Jangan paksa semua child ke kolom kanan */
+#student .mission-slide-card>*{
+  grid-column:auto!important;
+}
+
+#student .mission-slide-meta{
+  margin:0 0 12px!important;
+}
+
+#student .mission-slide-layout{
+  display:grid!important;
+  grid-template-columns:minmax(320px,1.02fr) minmax(280px,.98fr)!important;
+  gap:24px!important;
+  align-items:start!important;
+}
+
+#student .mission-slide-media{
+  grid-column:1!important;
+  width:100%!important;
+  min-width:0!important;
+  border-radius:20px!important;
+  overflow:hidden!important;
+  border:1px solid #d7e4f7!important;
+  background:linear-gradient(145deg,#dcecff,#f8fbff 58%,#eef3fb)!important;
+}
+
+#student .mission-slide-media img{
+  display:block!important;
+  width:100%!important;
+  aspect-ratio:4/3!important;
+  object-fit:cover!important;
+}
+
+#student .mission-slide-caption{
+  padding:9px 12px!important;
+  font-size:10px!important;
+  font-weight:800!important;
+  color:#64748b!important;
+  background:#fff!important;
+  border-top:1px solid #dfe7f3!important;
+}
+
+#student .mission-no-image{
+  display:grid!important;
+  place-items:center!important;
+  min-height:340px!important;
+  aspect-ratio:4/3!important;
+  padding:22px!important;
+  text-align:center!important;
+  color:#7786a3!important;
+}
+
+#student .mission-slide-copy{
+  grid-column:2!important;
+  min-width:0!important;
+}
+
+#student .mission-slide-title{
+  font-size:21px!important;
+  line-height:1.18!important;
+  margin:2px 0 10px!important;
+  color:#142653!important;
+  font-weight:900!important;
+}
+
+#student .mission-slide-text{
+  font-size:17px!important;
+  line-height:1.7!important;
+  color:#314565!important;
+  white-space:pre-wrap!important;
+}
+
+#student .mission-slide-footer{
+  margin-top:20px!important;
+  padding:0!important;
+  border-top:0!important;
+  background:transparent!important;
+}
+
+#student .mission-question{
+  margin-top:18px!important;
+  border-radius:18px!important;
+  padding:17px 20px!important;
+  background:#f4f8ff!important;
+}
+
+#student .mission-question strong{
+  font-size:11px!important;
+}
+
+#student .mission-question p{
+  font-size:18px!important;
+  line-height:1.5!important;
+}
+
+/* Tablet/mobile: gambar di atas, teks di bawah */
+@media (max-width:900px){
+  #student .mission-slide-layout{
+    grid-template-columns:1fr!important;
+  }
+
+  #student .mission-slide-media,
+  #student .mission-slide-copy{
+    grid-column:auto!important;
+  }
+
+  #student .mission-slide-media img,
+  #student .mission-no-image{
+    aspect-ratio:16/10!important;
+  }
+}
+
+/* Roles across the top, like the reference mock-up. */
+#student .student-role-strip{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(120px,1fr));
+  gap:10px;
+  margin:0 0 16px;
+}
+#student .student-role-card{
+  position:relative;
+  min-height:116px;
+  border:1px solid #dfe7f3;
+  border-radius:15px;
+  background:#fff;
+  padding:18px 13px 12px;
+  overflow:hidden;
+  transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease;
+}
+#student .student-role-card::before{content:"";position:absolute;left:12px;right:12px;top:10px;height:8px;border-radius:99px;background:var(--role-accent,#8cbcff);opacity:.72}
+#student .student-role-card.mine{border-color:#3b8cff;box-shadow:0 0 0 1px #3b8cff inset,0 8px 18px rgba(47,128,255,.09)}
+#student .student-role-card strong{display:block;margin-top:12px;font-size:14px;color:#142653;line-height:1.25}
+#student .student-role-card span{display:block;margin-top:6px;font-size:11px;line-height:1.4;color:#7786a3}
+#student .student-role-card small{display:block;margin-top:7px;font-size:10px;font-weight:800;color:#3976db}
+#student .student-discussion-shell{grid-template-columns:minmax(0,1.28fr) minmax(280px,.72fr)!important;gap:16px!important}
+#student .student-role-panel,#student .student-tools-panel{border-radius:18px;padding:18px}
+#student .student-role-avatar{width:72px;height:72px;flex-basis:72px;font-size:28px}
+#student .student-role-summary h3{font-size:19px}
+#student .student-role-summary p{font-size:14px}
+#student .student-role-tasks li{font-size:14px}
+
+/* Answer view. */
+#student .student-answer-shell h3{font-size:29px}
+#student .student-answer-sub{font-size:15px;margin-bottom:20px}
+#student #choiceArea .option{min-height:78px;padding:17px 20px;border-radius:18px;font-size:17px}
+#student #reasonInput{min-height:138px;font-size:16px;border-radius:17px}
+#student .student-answer-actions .btn{min-height:54px;font-size:15px}
+
+/* Right chat card: fixed visual hierarchy, avatars, full-height conversation. */
+#student .group-chat-head{padding:20px 20px 16px}
+#student .group-chat-title h3{font-size:23px;letter-spacing:-.025em}
+#student .group-chat-sub{font-size:13px;margin-top:3px}
+#student .chat-live{padding:10px 14px;font-size:12px}
+#student .group-chat-messages{flex:1!important;min-height:0!important;max-height:none!important;padding:18px 18px 8px!important;overflow:auto!important}
+#student .chat-date{margin:5px 0 15px}
+#student .chat-row{
+  max-width:100%!important;
+  display:grid!important;
+  grid-template-columns:52px minmax(0,1fr)!important;
+  gap:10px!important;
+  align-items:start!important;
+  margin:0 0 17px!important;
+}
+#student .chat-row.me{margin-left:0!important}
+#student .chat-avatar{
+  width:52px;height:52px;border-radius:50%;display:grid;place-items:center;
+  background:#eaf3ff;color:#2774e6;font-size:18px;font-weight:950;
+  border:1px solid #dce8fa
+}
+#student .chat-row:nth-of-type(3n) .chat-avatar{background:#f0eaff;color:#7658ee}
+#student .chat-row:nth-of-type(4n) .chat-avatar{background:#ffeaf1;color:#df4f82}
+#student .chat-content{min-width:0}
+#student .chat-meta-line{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:1px 2px 7px}
+#student .chat-sender{font-size:13px!important;font-weight:900!important;color:#172a58!important;margin:0!important}
+#student .chat-row.me .chat-sender{color:#2678eb!important}
+#student .chat-sender b{font-weight:900}
+#student .chat-time{font-size:11px!important;color:#8492af!important;padding:0!important;white-space:nowrap}
+#student .chat-bubble{
+  display:block!important;
+  padding:13px 15px!important;
+  border:0!important;
+  border-radius:16px!important;
+  background:#f4f6fa!important;
+  color:#334868!important;
+  font-size:15px!important;
+  line-height:1.55!important;
+}
+#student .chat-row.me .chat-bubble{background:#eef6ff!important}
+#student .group-chat-compose{padding:14px 16px 16px!important}
+#student .chat-input-row{grid-template-columns:minmax(0,1fr) 82px!important;gap:9px!important}
+#student #groupChatInput{min-height:54px!important;font-size:14px!important}
+#student .chat-send{font-size:14px!important}
+
+/* Keep desktop two-column layout until a genuinely small viewport. */
+@media (max-width:1180px) and (min-width:921px){
+  body.student-shell-active .topbar{align-items:center!important}
+  body.student-shell-active .student-header-status{width:auto!important;justify-content:flex-end!important;flex-wrap:wrap!important}
+  #student .student-game-layout{grid-template-columns:minmax(0,1.7fr) minmax(330px,.9fr)!important}
+  #student .student-chat-card{min-height:650px!important;height:calc(100vh - 165px)!important}
+  #student .mission-slide-card{grid-template-columns:minmax(250px,1fr) minmax(250px,1fr)!important}
+}
+@media(max-width:920px){
+  #student .student-game-layout{grid-template-columns:1fr!important}
+  #student .student-game-layout>.student-stage-card,#student .student-game-layout>.student-chat-card{grid-column:1!important}
+  #student .student-chat-card{position:static!important;height:auto!important;max-height:none!important;min-height:560px!important}
+  #student .mission-slide-card{grid-template-columns:1fr!important}
+  #student .mission-slide-card::before{grid-column:1!important;grid-row:auto!important;min-height:220px!important;margin-bottom:15px}
+  #student .mission-slide-card>*{grid-column:1!important}
+  #student .student-discussion-shell{grid-template-columns:1fr!important}
+}
+@media(max-width:700px){
+  body.student-shell-active .student-header-status{display:grid!important;grid-template-columns:repeat(2,minmax(0,1fr))!important;width:100%!important}
+  body.student-shell-active .student-head-group{min-width:0!important}
+  body.student-shell-active .student-head-leave{grid-column:1/-1}
+  #student .student-role-strip{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+#student #studentMission::before{display:none!important}
+#student .student-tab-panel[data-tab="case"] #studentMission{min-height:0!important}
