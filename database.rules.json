@@ -1,0 +1,94 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "rooms": {
+      "$room": {
+        ".read": "auth != null",
+        ".write": "auth != null && ((!data.exists() && newData.child('meta/hostUid').val() === auth.uid) || (data.exists() && data.child('meta/hostUid').val() === auth.uid))",
+        "meta": {
+          ".write": "auth != null && root.child('rooms').child($room).child('meta/hostUid').val() === auth.uid",
+          "hostUid": {
+            ".validate": "(!data.exists() && newData.val() === auth.uid) || (data.exists() && newData.val() === data.val())"
+          }
+        },
+        "groups": {
+          "$group": {
+            ".write": "auth != null && root.child('rooms').child($room).child('meta/hostUid').val() === auth.uid"
+          },
+          ".write": "auth != null && root.child('rooms').child($room).child('meta/hostUid').val() === auth.uid"
+        },
+        "students": {
+          "$uid": {
+            ".write": "auth != null && (root.child('rooms').child($room).child('meta/hostUid').val() === auth.uid || ($uid === auth.uid && ((!data.exists() && root.child('rooms').child($room).child('meta/teamPhase').val() === 'collecting' && newData.child('groupId').val() === '' && newData.child('pendingGroupId').val() === '') || (data.exists() && (newData.child('groupId').val() === data.child('groupId').val() || (!data.child('groupId').exists() && newData.child('groupId').val() === '')) && (newData.child('pendingGroupId').val() === data.child('pendingGroupId').val() || (!data.child('pendingGroupId').exists() && newData.child('pendingGroupId').val() === ''))))))",
+            "name": {
+              ".validate": "newData.isString() && newData.val().length >= 2 && newData.val().length <= 60"
+            },
+            "cls": {
+              ".validate": "newData.isString() && newData.val().length >= 1 && newData.val().length <= 30"
+            },
+            "groupId": {
+              ".validate": "newData.isString() && (newData.val() === '' || newData.val().matches(/^g[0-9]+$/))"
+            },
+            "pendingGroupId": {
+              ".validate": "newData.isString() && (newData.val() === '' || newData.val().matches(/^g[0-9]+$/))"
+            }
+          }
+        },
+        "answers": {
+          "$round": {
+            "$group": {
+              "submission": {
+                ".write": "auth != null && root.child('rooms').child($room).child('meta/teamPhase').val() === 'released' && root.child('rooms').child($room).child('students').child(auth.uid).child('groupId').val() === $group && root.child('rooms').child($room).child('meta/currentRoundKey').val() === $round && root.child('rooms').child($room).child('meta/locked').val() === false && now <= root.child('rooms').child($room).child('meta/roundEndsAt').val()"
+              },
+              "grading": {
+                ".write": "auth != null && root.child('rooms').child($room).child('meta/hostUid').val() === auth.uid"
+              }
+            }
+          }
+        },
+        "challenges": {
+          "$round": {
+            ".write": "auth != null && root.child('rooms').child($room).child('meta/hostUid').val() === auth.uid"
+          }
+        },
+        "crossword": {
+          ".read": "auth != null",
+          "config": {
+            ".write": "auth != null && root.child('rooms').child($room).child('meta/hostUid').val() === auth.uid"
+          },
+          "puzzle": {
+            ".write": "auth != null && root.child('rooms').child($room).child('meta/hostUid').val() === auth.uid"
+          },
+          "state": {
+            ".write": "auth != null && root.child('rooms').child($room).child('meta/hostUid').val() === auth.uid"
+          },
+          "teams": {
+            "$group": {
+              ".write": "auth != null && (root.child('rooms').child($room).child('meta/hostUid').val() === auth.uid || (root.child('rooms').child($room).child('meta/teamPhase').val() === 'released' && root.child('rooms').child($room).child('students').child(auth.uid).child('groupId').val() === $group))"
+            }
+          }
+        }
+      }
+    },
+    "groupChats": {
+      "$room": {
+        ".write": "auth != null && root.child('rooms').child($room).child('meta/hostUid').val() === auth.uid",
+        "$group": {
+          ".read": "auth != null && root.child('rooms').child($room).child('meta/teamPhase').val() === 'released' && (root.child('rooms').child($room).child('meta/hostUid').val() === auth.uid || root.child('rooms').child($room).child('students').child(auth.uid).child('groupId').val() === $group)",
+          "$message": {
+            ".write": "auth != null && root.child('rooms').child($room).child('meta/teamPhase').val() === 'released' && root.child('rooms').child($room).child('students').child(auth.uid).child('groupId').val() === $group && !data.exists() && newData.child('uid').val() === auth.uid && newData.child('name').val() === root.child('rooms').child($room).child('students').child(auth.uid).child('name').val()",
+            ".validate": "newData.hasChildren(['uid','name','text','createdAt']) && newData.child('text').isString() && newData.child('text').val().length >= 1 && newData.child('text').val().length <= 500 && newData.child('createdAt').isNumber() && (!newData.child('roundKey').exists() || newData.child('roundKey').isString()) && (!newData.child('roundIndex').exists() || newData.child('roundIndex').isNumber())"
+          }
+        },
+        ".read": "auth != null && root.child('rooms').child($room).child('meta/hostUid').val() === auth.uid"
+      }
+    },
+    "activityEvaluations": {
+      "$room": {
+        ".read": "auth != null && root.child('rooms').child($room).child('meta/hostUid').val() === auth.uid",
+        ".write": "auth != null && root.child('rooms').child($room).child('meta/hostUid').val() === auth.uid"
+      }
+    }
+  }
+}
