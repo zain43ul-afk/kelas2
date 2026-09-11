@@ -1,0 +1,163 @@
+/* =========================================================
+   PERAPIHAN LAYOUT LATIHAN 2
+   Mencegah panel simulasi bertabrakan dengan sidebar peserta.
+   ========================================================= */
+
+body.exercise-window-open #exercisePanel{
+  box-sizing:border-box!important;
+}
+
+/* Beri ruang stabil antara area utama dan sidebar */
+.l2-layout{
+  grid-template-columns:minmax(0,1fr) 310px!important;
+  gap:24px!important;
+}
+
+.l2-main,
+.l2-sidebar,
+.l2-learning-row,
+.l2-material-card,
+.l2-guide-card,
+.l2-guide-slide,
+.l2-section-card{
+  min-width:0!important;
+  box-sizing:border-box;
+}
+
+/* Kolom materi dibuat sedikit lebih ramping agar simulasi memperoleh ruang */
+.l2-learning-row{
+  grid-template-columns:minmax(220px,250px) minmax(0,1fr)!important;
+  gap:18px!important;
+  align-items:stretch;
+}
+
+/* Simulasi tidak boleh menembus sidebar */
+.l2-guide-card{
+  overflow:hidden!important;
+}
+
+.l2-guide-slide{
+  overflow:hidden!important;
+}
+
+.l2-sim-sheet{
+  width:100%!important;
+  max-width:100%!important;
+  overflow-x:auto!important;
+  overflow-y:hidden!important;
+  box-sizing:border-box!important;
+  scrollbar-width:thin;
+}
+
+/* Sedikit lebih kompak daripada versi sebelumnya */
+.l2-sim-grid{
+  min-width:540px!important;
+  grid-template-columns:32px 90px repeat(6,minmax(48px,1fr))!important;
+}
+
+.l2-sim-fx{
+  min-width:540px;
+}
+
+/* Sidebar mendapat ruang sendiri, tidak menindih konten utama */
+.l2-sidebar{
+  width:100%!important;
+  max-width:310px!important;
+  justify-self:end!important;
+  position:sticky!important;
+  top:16px!important;
+  z-index:2;
+}
+
+.l2-participant,
+.l2-side-card,
+.l2-quick-tip{
+  width:100%!important;
+  max-width:100%!important;
+  box-sizing:border-box!important;
+}
+
+/* Pastikan isi kartu sidebar tidak memaksa kolom melebar */
+.l2-side-ex{
+  grid-template-columns:28px minmax(0,1fr) auto!important;
+}
+
+.l2-side-ex b{
+  min-width:0;
+  overflow-wrap:anywhere;
+}
+
+/* Area tabel dan soal tetap berada di kolom utama */
+.l2-table-scroll,
+.l2-extra-box{
+  max-width:100%!important;
+  min-width:0!important;
+  box-sizing:border-box!important;
+}
+
+/* Navigasi slide jangan keluar dari kartu */
+.l2-guide-nav{
+  min-width:0!important;
+}
+
+.l2-guide-nav>button{
+  min-width:0!important;
+  white-space:nowrap;
+}
+
+/* Laptop / layar menengah */
+@media(max-width:1250px){
+  .l2-layout{
+    grid-template-columns:minmax(0,1fr) 280px!important;
+    gap:18px!important;
+  }
+  .l2-sidebar{
+    max-width:280px!important;
+  }
+  .l2-learning-row{
+    grid-template-columns:220px minmax(0,1fr)!important;
+    gap:14px!important;
+  }
+  .l2-material-card,
+  .l2-guide-card{
+    padding:16px!important;
+  }
+  .l2-sim-grid,
+  .l2-sim-fx{
+    min-width:500px!important;
+  }
+}
+
+/* Saat ruang sudah terlalu sempit, sidebar turun ke bawah agar tidak bertabrakan */
+@media(max-width:1080px){
+  .l2-layout{
+    grid-template-columns:1fr!important;
+  }
+  .l2-sidebar{
+    position:static!important;
+    max-width:none!important;
+    width:100%!important;
+    display:grid!important;
+    grid-template-columns:repeat(2,minmax(0,1fr))!important;
+  }
+  .l2-participant{
+    grid-column:1/-1;
+  }
+}
+
+/* Tablet */
+@media(max-width:820px){
+  .l2-learning-row{
+    grid-template-columns:1fr!important;
+  }
+  .l2-sidebar{
+    grid-template-columns:1fr!important;
+  }
+  .l2-participant{
+    grid-column:auto;
+  }
+  .l2-sim-grid,
+  .l2-sim-fx{
+    min-width:480px!important;
+  }
+}
