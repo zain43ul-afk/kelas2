@@ -39,6 +39,7 @@
     teacher.dataset.view=view;
     show($('teacherAiInlineView'),view==='ai');
     show($('teacherOperationalView'),view!=='ai'&&view!=='final');
+    show($('teacherRoundDurationCard'),view==='pre');
     show($('teacherFinalView'),view==='final');
     document.querySelectorAll('#teacherStageSwitcher button[data-view]').forEach(btn=>{
       const v=btn.dataset.view;
@@ -152,17 +153,16 @@
     const topic=cfg.topic||sourceControl('caseTopic')?.value||'Keamanan dan etika digital';
     const focus=cfg.skill||sourceControl('caseSkill')?.value||'campuran';
     const rounds=Math.max(2,Math.min(5,Number(cfg.rounds||sourceControl('caseRoundCount')?.value||bridge().getMissionCount?.()||5)));
-    const slides=Number(cfg.slidesPerCase||sourceControl('caseSlideCount')?.value||3);
     const diff=cfg.difficulty||sourceControl('caseDifficulty')?.value||'sedang';
     let guide=String(cfg.teacherNote||sourceControl('caseTeacherNote')?.value||'');
     guide=guide.replace(/^Gunakan judul utama yang mencerminkan:\s*"[^"]+"\.\s*/i,'');
-    setVal('teacherAiTopic',topic);setVal('teacherAiFocus',focus);setVal('teacherAiRoundCount',rounds);setVal('teacherAiSlideCount',slides);setVal('teacherAiGuide',guide);
+    setVal('teacherAiTopic',topic);setVal('teacherAiFocus',focus);setVal('teacherAiRoundCount',rounds);setVal('teacherAiGuide',guide);
     setDifficulty(diff);
     updateCounters();
   }
 
   function syncInlineToGenerator(){
-    const pairs=[['teacherAiTopic','caseTopic'],['teacherAiFocus','caseSkill'],['teacherAiRoundCount','caseRoundCount'],['teacherAiSlideCount','caseSlideCount']];
+    const pairs=[['teacherAiTopic','caseTopic'],['teacherAiFocus','caseSkill'],['teacherAiRoundCount','caseRoundCount']];
     pairs.forEach(([a,b])=>{const x=$(a),y=sourceControl(b);if(x&&y)y.value=x.value});
     const diff=sourceControl('caseDifficulty');if(diff)diff.value=difficulty;
     const guide=String($('teacherAiGuide')?.value||'').trim();
@@ -183,7 +183,7 @@
     const mode=bridge().getMissionSourceMode?.()||'default';
     const count=missions.length||bridge().getMissionCount?.()||0;
     if(ready)ready.textContent=mode==='bank'?`${count} kasus dari bank lokal siap digunakan`:`${count} kasus siap digunakan`;
-    const slides=m?missionSlides(m):[];if(badge)badge.textContent=`${slides.length||Number($('teacherAiSlideCount')?.value||3)} slide`;
+    const slides=m?missionSlides(m):[];if(badge)badge.textContent=slides.length?`${slides.length} slide`:'3–5 slide';
     if(!slides.length){box.innerHTML='<div class="teacher-ai-preview-empty">Preview akan muncul setelah kasus tersedia.</div>';return}
     box.innerHTML=slides.map((sl,i)=>{
       const sharedImage=String(m?.imageUrl||sl?.imageUrl||'');
@@ -196,7 +196,7 @@
   function refreshAiPanel(){
     syncInlineFromConfig();renderPreview();
     const disabled=roundIndex()>=0;
-    ['teacherAiTitle','teacherAiTopic','teacherAiRoundCount','teacherAiSlideCount','teacherAiFocus','teacherAiGuide'].forEach(id=>{const el=$(id);if(el)el.disabled=disabled});
+    ['teacherAiTitle','teacherAiTopic','teacherAiRoundCount','teacherAiFocus','teacherAiGuide'].forEach(id=>{const el=$(id);if(el)el.disabled=disabled});
     document.querySelectorAll('#teacherAiDifficulty button').forEach(b=>b.disabled=disabled);
     const gen=$('teacherAiGenerateBtn');if(gen){gen.disabled=disabled;gen.textContent=disabled?'Kasus Terkunci':'Buat Kasus'}
   }
@@ -219,14 +219,13 @@
     setVal('teacherAiTitle',firstMission()?.title||'Kota Pintar, Warga Bahagia?');
     setVal('teacherAiTopic',cfg.topic||'Keamanan dan etika digital');
     setVal('teacherAiFocus',cfg.skill||'campuran');
-    setVal('teacherAiRoundCount',Math.max(2,Math.min(5,Number(cfg.rounds||5))));setVal('teacherAiSlideCount',cfg.slidesPerCase||3);
+    setVal('teacherAiRoundCount',Math.max(2,Math.min(5,Number(cfg.rounds||5))));
     setVal('teacherAiGuide','Arahkan siswa untuk melihat berbagai sudut pandang, menggunakan data, dan memberikan solusi yang realistis.');
     setDifficulty(cfg.difficulty||'sedang');updateCounters();
   }
 
   function bindAiInputs(){
     ['teacherAiTitle','teacherAiGuide'].forEach(id=>{const el=$(id);if(el&&!el.dataset.bound){el.dataset.bound='1';el.addEventListener('input',updateCounters)}});
-    ['teacherAiSlideCount'].forEach(id=>{const el=$(id);if(el&&!el.dataset.previewBound){el.dataset.previewBound='1';el.addEventListener('change',()=>{const badge=$('teacherAiPreviewBadge');if(badge)badge.textContent=`${el.value} slide`})}});
   }
 
   function setMode(mode){if(mode!=='teacher'){selectedView=null;document.body.classList.remove('teacher-answers-open')}}
