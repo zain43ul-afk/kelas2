@@ -266,8 +266,71 @@
   }
 
   function numberExplanation(){
-    const synthetic={visualKind:'number',demo:'Satu informasi dapat ditulis dengan sistem yang berbeda sesuai kebutuhan.',steps:['Biner cocok untuk dua keadaan','Desimal akrab bagi manusia','Oktal dapat menjadi bentuk alternatif','Heksadesimal membantu penulisan teknis yang ringkas']};
-    return `<span class="concept-question-kicker">BAB 1 • PELAJARI SATU SUBBAB PENUH</span><h2>Sistem Bilangan: Biner, Oktal, Desimal, dan Heksadesimal</h2><p class="concept-explain-copy">Sistem bilangan adalah cara menuliskan informasi berupa bilangan dengan aturan tertentu. Pada tahap ini kamu tidak perlu menghitung konversi atau menghafal simbol. Yang penting adalah memahami <b>mengapa ada beberapa sistem bilangan</b> dan kapan masing-masing lebih cocok digunakan.</p><div class="concept-chapter-cards four"><article><span>01</span><b>Biner</b><p>Dekat dengan cara kerja perangkat digital karena mudah mewakili dua keadaan, misalnya aktif dan tidak aktif.</p></article><article><span>02</span><b>Oktal</b><p>Salah satu cara alternatif untuk menuliskan informasi bilangan dalam konteks komputer tertentu.</p></article><article><span>03</span><b>Desimal</b><p>Paling akrab bagi manusia karena digunakan pada harga, jumlah, umur, nilai, dan kegiatan sehari-hari.</p></article><article><span>04</span><b>Heksadesimal</b><p>Sering dipakai agar informasi teknis yang panjang dapat ditulis lebih ringkas dan mudah diperiksa.</p></article></div><div class="concept-chapter-key"><b>Gagasan utama</b><p>Bentuk tulisan dapat berbeda, tetapi informasi yang diwakili dapat tetap sama. Pilihan sistem bilangan bergantung pada tujuan dan siapa yang membacanya.</p></div>${visualHtml(synthetic)}`;
+    const synthetic={visualKind:'number',demo:'Kenali basis → pahami simbol → pilih cara konversi → periksa hasil.',steps:['Kenali basis sistem asal dan tujuan','Ke desimal: gunakan nilai tempat','Dari desimal: bagi berulang dengan basis tujuan','Biner ↔ oktal/heksa: kelompokkan digit']};
+    return `<span class="concept-question-kicker">BAB 1 • PELAJARI SATU SUBBAB PENUH</span>
+      <h2>Sistem Bilangan: Biner, Oktal, Desimal, dan Heksadesimal</h2>
+      <p class="concept-explain-copy">Sistem bilangan adalah <b>cara menuliskan dan mewakili suatu nilai</b> menggunakan kumpulan simbol serta aturan tertentu. Dalam informatika kita tidak hanya memakai desimal. Komputer, perangkat digital, dan pekerjaan teknis juga sering memakai biner, oktal, dan heksadesimal. Keempatnya dapat mewakili nilai yang sama, tetapi cara menulisnya berbeda karena <b>basis</b> yang digunakan berbeda.</p>
+
+      <section class="concept-number-section">
+        <div class="concept-number-section-title"><span>01</span><div><b>Pengertian dasar</b><small>Apa yang dimaksud sistem bilangan dan basis?</small></div></div>
+        <p>Sebuah sistem bilangan memiliki <b>basis</b>, yaitu banyaknya simbol dasar yang tersedia sebelum penulisan berpindah ke posisi berikutnya. Desimal berbasis 10 karena memakai sepuluh simbol 0–9. Biner berbasis 2 karena hanya memakai 0 dan 1. Nilai sebuah digit juga dipengaruhi oleh <b>posisinya</b>. Karena itu, angka yang sama dapat mempunyai makna berbeda ketika berada pada posisi atau sistem yang berbeda.</p>
+        <div class="concept-number-foundation">
+          <article><b>Simbol</b><span>Tanda yang boleh dipakai, misalnya 0 dan 1 pada biner.</span></article>
+          <article><b>Basis</b><span>Jumlah simbol dasar yang digunakan oleh suatu sistem.</span></article>
+          <article><b>Nilai tempat</b><span>Posisi digit menentukan nilainya, dari kanan ke kiri semakin besar.</span></article>
+        </div>
+      </section>
+
+      <section class="concept-number-section">
+        <div class="concept-number-section-title"><span>02</span><div><b>Jenis-jenis sistem bilangan</b><small>Kenali pengertian, simbol, dan contoh masing-masing.</small></div></div>
+        <div class="concept-number-system-grid">
+          <article class="concept-number-system-card binary"><div class="concept-base-chip">Basis 2</div><h3>Biner</h3><p>Biner hanya memakai <b>0 dan 1</b>. Sistem ini sangat dekat dengan cara kerja perangkat digital karena dua simbol tersebut mudah dipakai untuk mewakili dua keadaan, seperti mati/menyala atau tidak aktif/aktif.</p><div class="concept-number-example"><small>Contoh</small><strong>1011<sub>2</sub></strong><span>Dibaca sebagai bilangan biner, bukan “seribu sebelas”.</span></div></article>
+          <article class="concept-number-system-card octal"><div class="concept-base-chip">Basis 8</div><h3>Oktal</h3><p>Oktal memakai delapan simbol, yaitu <b>0 sampai 7</b>. Oktal dapat digunakan sebagai bentuk penulisan yang lebih ringkas daripada deretan biner pada konteks komputer tertentu.</p><div class="concept-number-example"><small>Contoh</small><strong>157<sub>8</sub></strong><span>Digit 8 dan 9 tidak digunakan dalam sistem oktal.</span></div></article>
+          <article class="concept-number-system-card decimal"><div class="concept-base-chip">Basis 10</div><h3>Desimal</h3><p>Desimal memakai sepuluh simbol, yaitu <b>0 sampai 9</b>. Ini adalah sistem yang paling sering kita gunakan dalam kehidupan sehari-hari, misalnya untuk harga, umur, nilai, jumlah barang, dan nomor.</p><div class="concept-number-example"><small>Contoh</small><strong>245<sub>10</sub></strong><span>Jika tidak diberi tanda basis, biasanya manusia menganggapnya desimal.</span></div></article>
+          <article class="concept-number-system-card hex"><div class="concept-base-chip">Basis 16</div><h3>Heksadesimal</h3><p>Heksadesimal memakai enam belas simbol: <b>0–9 dan A–F</b>. Huruf A, B, C, D, E, F dipakai sebagai simbol tambahan untuk nilai 10 sampai 15. Sistem ini sering dipakai agar data teknis lebih ringkas.</p><div class="concept-number-example"><small>Contoh</small><strong>2F<sub>16</sub></strong><span>A=10, B=11, C=12, D=13, E=14, dan F=15.</span></div></article>
+        </div>
+      </section>
+
+      <section class="concept-number-section">
+        <div class="concept-number-section-title"><span>03</span><div><b>Bagaimana nilai sebuah bilangan terbentuk?</b><small>Gunakan nilai tempat dari kanan ke kiri.</small></div></div>
+        <p>Posisi paling kanan bernilai <b>basis<sup>0</sup></b>, posisi berikutnya basis<sup>1</sup>, lalu basis<sup>2</sup>, dan seterusnya. Cara ini membantu kita memahami mengapa bilangan dari sistem yang berbeda dapat diubah ke desimal.</p>
+        <div class="concept-placevalue-demo"><div><span>1</span><span>0</span><span>1</span><span>1</span><small>1011<sub>2</sub></small></div><div class="concept-placevalue-arrow">↓</div><p><b>1×2³</b> + <b>0×2²</b> + <b>1×2¹</b> + <b>1×2⁰</b> = 8 + 0 + 2 + 1 = <strong>11<sub>10</sub></strong></p></div>
+      </section>
+
+      <section class="concept-number-section">
+        <div class="concept-number-section-title"><span>04</span><div><b>Cara konversi ke desimal</b><small>Kalikan setiap digit dengan nilai tempatnya, lalu jumlahkan.</small></div></div>
+        <div class="concept-conversion-grid">
+          <article class="concept-conversion-card"><h3>Biner → Desimal</h3><div class="concept-conversion-formula">1011<sub>2</sub></div><ol><li>Mulai dari kanan: 2⁰, 2¹, 2², 2³.</li><li>Kalikan setiap digit dengan nilai tempatnya.</li><li>Jumlahkan hasilnya.</li></ol><strong>1011<sub>2</sub> = 11<sub>10</sub></strong></article>
+          <article class="concept-conversion-card"><h3>Oktal → Desimal</h3><div class="concept-conversion-formula">17<sub>8</sub></div><ol><li>Gunakan nilai tempat berbasis 8.</li><li>1×8¹ + 7×8⁰.</li><li>8 + 7 = 15.</li></ol><strong>17<sub>8</sub> = 15<sub>10</sub></strong></article>
+          <article class="concept-conversion-card"><h3>Heksa → Desimal</h3><div class="concept-conversion-formula">2A<sub>16</sub></div><ol><li>Ingat A mewakili 10.</li><li>2×16¹ + 10×16⁰.</li><li>32 + 10 = 42.</li></ol><strong>2A<sub>16</sub> = 42<sub>10</sub></strong></article>
+        </div>
+      </section>
+
+      <section class="concept-number-section">
+        <div class="concept-number-section-title"><span>05</span><div><b>Cara mengubah desimal ke sistem lain</b><small>Bagi berulang dengan basis tujuan, catat sisa, lalu baca sisa dari bawah ke atas.</small></div></div>
+        <div class="concept-conversion-grid">
+          <article class="concept-conversion-card division"><h3>Desimal → Biner</h3><div class="concept-conversion-formula">13<sub>10</sub> → ?<sub>2</sub></div><ol><li>13 ÷ 2 = 6 sisa <b>1</b></li><li>6 ÷ 2 = 3 sisa <b>0</b></li><li>3 ÷ 2 = 1 sisa <b>1</b></li><li>1 ÷ 2 = 0 sisa <b>1</b></li></ol><strong>Baca dari bawah: 1101<sub>2</sub></strong></article>
+          <article class="concept-conversion-card division"><h3>Desimal → Oktal</h3><div class="concept-conversion-formula">25<sub>10</sub> → ?<sub>8</sub></div><ol><li>25 ÷ 8 = 3 sisa <b>1</b></li><li>3 ÷ 8 = 0 sisa <b>3</b></li></ol><strong>Baca dari bawah: 31<sub>8</sub></strong></article>
+          <article class="concept-conversion-card division"><h3>Desimal → Heksa</h3><div class="concept-conversion-formula">42<sub>10</sub> → ?<sub>16</sub></div><ol><li>42 ÷ 16 = 2 sisa <b>10</b> = A</li><li>2 ÷ 16 = 0 sisa <b>2</b></li></ol><strong>Baca dari bawah: 2A<sub>16</sub></strong></article>
+        </div>
+      </section>
+
+      <section class="concept-number-section">
+        <div class="concept-number-section-title"><span>06</span><div><b>Konversi cepat yang melibatkan biner</b><small>Gunakan kelompok digit agar tidak perlu menghitung panjang.</small></div></div>
+        <div class="concept-binary-shortcuts">
+          <article><div><b>Biner ↔ Oktal</b><span>Kelompokkan biner per <strong>3 digit</strong> dari kanan.</span></div><p>111010<sub>2</sub> → 111 | 010 → 7 | 2 → <b>72<sub>8</sub></b></p><small>Untuk arah sebaliknya, setiap satu digit oktal diubah menjadi tiga digit biner.</small></article>
+          <article><div><b>Biner ↔ Heksadesimal</b><span>Kelompokkan biner per <strong>4 digit</strong> dari kanan.</span></div><p>10101111<sub>2</sub> → 1010 | 1111 → A | F → <b>AF<sub>16</sub></b></p><small>Untuk arah sebaliknya, setiap satu digit heksa diubah menjadi empat digit biner.</small></article>
+          <article><div><b>Oktal ↔ Heksadesimal</b><span>Paling mudah memakai biner sebagai jembatan.</span></div><p>17<sub>8</sub> → 001 | 111<sub>2</sub> → 1111<sub>2</sub> → <b>F<sub>16</sub></b></p><small>Bisa juga diubah ke desimal terlebih dahulu, lalu dari desimal ke sistem tujuan.</small></article>
+        </div>
+      </section>
+
+      <section class="concept-number-section">
+        <div class="concept-number-section-title"><span>07</span><div><b>Ringkasan cara memilih metode</b><small>Lihat sistem asal dan sistem tujuan terlebih dahulu.</small></div></div>
+        <div class="concept-conversion-table-wrap"><table class="concept-conversion-table"><thead><tr><th>Dari</th><th>Ke desimal</th><th>Ke biner</th><th>Ke oktal</th><th>Ke heksa</th></tr></thead><tbody><tr><th>Biner</th><td>Nilai tempat basis 2</td><td>—</td><td>Kelompok 3 bit</td><td>Kelompok 4 bit</td></tr><tr><th>Oktal</th><td>Nilai tempat basis 8</td><td>1 digit → 3 bit</td><td>—</td><td>Lewat biner/desimal</td></tr><tr><th>Desimal</th><td>—</td><td>Bagi 2 berulang</td><td>Bagi 8 berulang</td><td>Bagi 16 berulang</td></tr><tr><th>Heksa</th><td>Nilai tempat basis 16</td><td>1 digit → 4 bit</td><td>Lewat biner/desimal</td><td>—</td></tr></tbody></table></div>
+      </section>
+
+      <div class="concept-chapter-key"><b>Ingat tiga aturan sederhana</b><p><b>1)</b> Kenali basisnya. <b>2)</b> Jika menuju desimal, gunakan nilai tempat. <b>3)</b> Jika berangkat dari desimal, lakukan pembagian berulang dengan basis tujuan. Untuk biner–oktal dan biner–heksa, pengelompokan digit biasanya paling cepat.</p></div>
+      ${visualHtml(synthetic)}`;
   }
 
   function algorithmExplanation(){
