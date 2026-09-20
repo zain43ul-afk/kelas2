@@ -1,0 +1,481 @@
+{
+  "version": "V28",
+  "cases": [
+    {
+      "id": "etika-media-sosial-video-kelas",
+      "category": "ethics",
+      "topic": "Etika media sosial",
+      "difficulty": "sedang",
+      "title": "Video Setelah Latihan Kelas",
+      "kicker": "Etika Media Sosial",
+      "imageUrl": "case-images/01-etika-media-sosial.jpg",
+      "text": "Susun keputusan kelompok tentang apakah video layak diunggah. Bahas persetujuan orang yang terekam, kemungkinan penyebaran di luar kendali, dampak terhadap teman dan guru, serta tindakan yang paling bertanggung jawab sebelum konten dibagikan.",
+      "slides": [
+        {
+          "title": "Video Setelah Latihan Kelas",
+          "text": "Kelas VIII B baru selesai berlatih untuk pentas seni sekolah. Setelah latihan, suasana kelas masih ramai dan beberapa siswa bercanda sambil membereskan perlengkapan. Nisa mengambil ponselnya lalu merekam teman-temannya karena menurutnya suasana itu lucu dan cocok dijadikan story. Dalam video tersebut, Bima menirukan gaya salah satu guru ketika memberi tugas dan beberapa teman tertawa. Nisa merasa rekaman itu tidak berbahaya karena hanya berdurasi singkat. Ia berencana mengunggahnya ke akun media sosial pribadinya yang memiliki sekitar 120 pengikut, sebagian besar teman sekolah. Nisa juga berpikir bahwa akun yang tidak terlalu besar membuat video itu kemungkinan hanya dilihat oleh orang-orang yang ia kenal. Namun, ia belum menanyakan kepada semua siswa yang terlihat di dalam rekaman apakah mereka bersedia videonya diunggah."
+        },
+        {
+          "title": "Mulai Ada Permintaan untuk Mengunggah",
+          "text": "Sebelum mengunggah, Nisa memperlihatkan video tersebut kepada beberapa teman yang berdiri di dekatnya. Bima tertawa saat melihat dirinya menirukan guru dan berkata bahwa videonya memang lucu. Dua teman lain bahkan meminta Nisa segera mengunggah video dan menandai akun mereka agar lebih banyak teman dapat melihatnya. Akan tetapi, ketika video diputar ulang, terlihat Sari di bagian belakang sedang berbicara cukup serius dengan temannya. Sari tidak menyadari dirinya ikut terekam dan belum pernah melihat video tersebut. Selain itu, suara percakapan beberapa siswa terdengar samar. Salah seorang teman mengatakan tidak perlu meminta izin kepada semua orang karena mereka hanya muncul sebentar. Teman lain justru mengingatkan bahwa seseorang bisa merasa tidak nyaman walaupun hanya terlihat beberapa detik dalam video, terutama jika tidak mengetahui bahwa dirinya direkam."
+        },
+        {
+          "title": "Diunggah Sekarang atau Diubah Dulu?",
+          "text": "Nisa mulai ragu setelah mendengar pendapat yang berbeda. Menurutnya, video itu hanya candaan dan tidak bermaksud menghina siapa pun. Bima yang menjadi pusat perhatian dalam video juga tidak keberatan. Namun, video tersebut tidak hanya menampilkan Bima. Ada beberapa siswa lain yang wajahnya terlihat, dan candaan Bima menirukan seorang guru dapat dipahami secara berbeda oleh orang yang tidak berada di kelas saat kejadian. Salah seorang teman berpendapat bahwa Nisa bisa mengunggah sekarang dan menghapusnya nanti jika ada yang keberatan. Teman lain menilai cara itu berisiko karena orang lain dapat merekam layar, mengunduh, atau meneruskan video sebelum dihapus. Nisa harus mempertimbangkan apakah persetujuan satu orang sudah cukup, apakah bagian tertentu perlu dipotong, dan apakah tujuan hiburan sebanding dengan risiko terhadap orang lain yang ikut terekam."
+        },
+        {
+          "title": "Video Bisa Menyebar Lebih Jauh",
+          "text": "Salah satu teman kemudian mengingatkan bahwa unggahan media sosial tidak selalu berhenti pada pengikut akun pertama. Video dapat direkam layar, dikirim ke grup lain, diunggah ulang, atau diberi keterangan baru yang tidak sesuai dengan suasana sebenarnya. Nisa juga mengetahui bahwa guru yang ditirukan Bima mengikuti beberapa akun siswa dan mungkin saja melihat rekaman itu dari unggahan ulang orang lain. Sari sebelumnya pernah mengatakan bahwa ia tidak suka foto atau videonya dipublikasikan tanpa izin. Teman lain menyarankan agar Nisa menunda unggahan, menanyakan persetujuan kepada siswa yang terlihat jelas, memotong bagian yang tidak perlu, atau memilih tidak mengunggah jika risikonya lebih besar daripada manfaatnya. Kelompok harus menentukan keputusan yang paling bertanggung jawab dengan mempertimbangkan privasi, etika bercanda, jejak digital, serta kemungkinan konten keluar dari lingkaran pertemanan."
+        }
+      ],
+      "impact": "Konten yang dianggap lucu oleh pembuatnya dapat dipahami berbeda oleh orang lain, menyebar di luar kendali, dan menimbulkan masalah privasi maupun hubungan sosial.",
+      "perspective": "Pertimbangkan Nisa sebagai pengunggah, Bima, Sari, siswa lain yang ikut terekam, guru yang ditirukan, dan orang yang mungkin menerima unggahan ulang.",
+      "groupTask": [
+        {
+          "title": "Keputusan unggah",
+          "instruction": "Tentukan apakah video sebaiknya diunggah, diubah terlebih dahulu, ditunda, atau tidak diunggah. Jelaskan alasan kelompok."
+        },
+        {
+          "title": "Persetujuan dan privasi",
+          "instruction": "Jelaskan siapa saja yang persetujuannya perlu dipertimbangkan dan mengapa kemunculan singkat tetap dapat berkaitan dengan privasi."
+        },
+        {
+          "title": "Risiko penyebaran",
+          "instruction": "Jelaskan apa yang dapat terjadi setelah video masuk ke media sosial walaupun akun Nisa hanya memiliki sedikit pengikut."
+        },
+        {
+          "title": "Tindakan yang bertanggung jawab",
+          "instruction": "Berikan langkah konkret yang sebaiknya dilakukan Nisa sebelum mengambil keputusan akhir."
+        }
+      ]
+    },
+    {
+      "id": "phishing-hadiah-10-menit",
+      "category": "phishing",
+      "topic": "Keamanan akun dan phishing",
+      "difficulty": "mudah",
+      "title": "Hadiah yang Harus Diklaim dalam 10 Menit",
+      "kicker": "Detektif Tautan",
+      "imageUrl": "case-images/02-phishing-link.jpg",
+      "text": "Nilai apakah pesan hadiah dapat dipercaya. Temukan tanda-tanda yang perlu diperiksa, jelaskan risiko jika data diberikan, dan susun langkah verifikasi yang dapat dilakukan tanpa menyerahkan password atau kode rahasia.",
+      "slides": [
+        {
+          "title": "Pesan Hadiah yang Terlihat Resmi",
+          "text": "Sepulang sekolah, Raka menerima pesan langsung dari akun yang menggunakan foto profil dan logo perusahaan gim terkenal. Pesan itu menyatakan bahwa akun Raka terpilih sebagai salah satu pemenang voucher senilai ratusan ribu rupiah. Di bagian bawah pesan terdapat tulisan bahwa hadiah hanya dapat diklaim dalam waktu 10 menit karena sistem akan memilih pemenang lain jika Raka terlambat. Raka merasa tertarik karena sehari sebelumnya ia memang mengikuti komentar pada unggahan tentang turnamen gim. Nama perusahaan, warna logo, dan gambar hadiah terlihat meyakinkan. Namun, Raka tidak ingat pernah mendaftarkan diri pada program berhadiah. Nama akun pengirim juga memiliki tambahan satu huruf yang hampir tidak terlihat jika dibaca cepat. Karena waktu terus berkurang, Raka merasa harus segera memilih antara mengikuti instruksi atau berhenti untuk memeriksa kebenarannya."
+        },
+        {
+          "title": "Halaman Meminta Data Rahasia",
+          "text": "Raka menekan tautan dari pesan tersebut dan masuk ke sebuah halaman yang tampilannya sangat mirip dengan situs resmi gim. Halaman itu meminta nama pengguna, password, nomor telepon, dan kode OTP yang nantinya dikirim melalui SMS. Di bagian atas terdapat penghitung waktu yang terus berjalan dan peringatan bahwa hadiah akan hangus jika formulir tidak selesai. Saat memperhatikan alamat situs, Raka melihat domainnya menyerupai situs asli tetapi menggunakan tambahan kata dan tanda hubung yang tidak biasa. Browser juga menampilkan peringatan kecil bahwa koneksi ke halaman perlu diperiksa. Seorang teman di grup chat menyuruh Raka cepat mengisi karena pernah melihat promosi serupa, tetapi teman tersebut juga tidak pernah berhasil menerima hadiah. Raka belum memeriksa akun resmi perusahaan, halaman bantuan, atau informasi promosi yang benar-benar berasal dari penyelenggara."
+        },
+        {
+          "title": "Memilih Langkah yang Aman",
+          "text": "Waktu pada halaman tinggal beberapa menit dan Raka mulai khawatir kehilangan kesempatan. Ia mempertimbangkan memasukkan data terlebih dahulu lalu mengganti password setelah mendapatkan hadiah. Teman lain menyarankan agar ia tidak memberikan OTP karena kode tersebut biasanya digunakan untuk mengonfirmasi akses atau transaksi. Ada juga yang menyarankan mencari nama program hadiah melalui akun resmi perusahaan dan membandingkan alamat situs. Raka menyadari bahwa tekanan waktu membuatnya lebih sulit berpikir tenang. Jika pesan itu asli, seharusnya ada cara untuk memverifikasi promosi tanpa menyerahkan password. Jika pesan itu palsu, memberikan data login dan OTP dapat membuat pihak lain mengambil alih akun. Kelompok harus menentukan tingkat risiko pesan tersebut, tanda-tanda apa yang paling penting, dan tindakan pertama yang aman sebelum Raka melakukan sesuatu terhadap tautan itu."
+        }
+      ],
+      "impact": "Phishing dapat mengambil kredensial, OTP, akun, dan bahkan data pembayaran dengan memanfaatkan tampilan palsu dan tekanan waktu.",
+      "perspective": "Pertimbangkan identitas pengirim, alamat situs, jenis data yang diminta, tekanan waktu, sumber resmi, serta fungsi OTP.",
+      "groupTask": [
+        {
+          "title": "Tanda mencurigakan",
+          "instruction": "Temukan minimal tiga bagian pesan atau situs yang perlu dicurigai."
+        },
+        {
+          "title": "Risiko data",
+          "instruction": "Jelaskan apa yang dapat terjadi jika Raka memberikan password dan OTP."
+        },
+        {
+          "title": "Verifikasi",
+          "instruction": "Susun langkah untuk memeriksa promosi tanpa menggunakan tautan dari pesan."
+        },
+        {
+          "title": "Keputusan",
+          "instruction": "Tentukan tindakan pertama yang sebaiknya dilakukan Raka dan berikan alasannya."
+        }
+      ]
+    },
+    {
+      "id": "password-wifi-publik",
+      "category": "account",
+      "topic": "Keamanan akun",
+      "difficulty": "sedang",
+      "title": "Password Sama dan Wi-Fi Gratis",
+      "kicker": "Audit Keamanan Akun",
+      "imageUrl": "case-images/03-password-wifi.jpg",
+      "text": "Nilai tingkat risiko kebiasaan Dina. Temukan masalah utama pada password, berbagi akun, dan penggunaan jaringan umum, lalu susun urutan tindakan pemulihan yang paling penting setelah muncul notifikasi login tidak dikenal.",
+      "slides": [
+        {
+          "title": "Satu Password untuk Banyak Akun",
+          "text": "Dina ingin semua akun digitalnya mudah diingat sehingga ia memakai password yang hampir sama untuk akun sekolah, email, gim, dan salah satu media sosial. Password tersebut terdiri dari nama panggilan, angka tahun lahir, dan beberapa angka sederhana di belakangnya. Dina merasa cara ini praktis karena ia tidak perlu mencatat banyak password. Ia juga beranggapan tidak ada orang yang tertarik mencoba masuk ke akun milik siswa biasa. Beberapa teman pernah melihat Dina mengetik password ketika mereka bekerja bersama di komputer sekolah, tetapi Dina tidak terlalu khawatir. Akun email Dina terhubung dengan berbagai layanan dan digunakan untuk menerima kode pemulihan akun lain. Akun sekolah juga menyimpan tugas, informasi kelas, dan beberapa data pribadi. Dina belum pernah mengaktifkan autentikasi dua langkah dan tidak rutin memeriksa perangkat yang masih login."
+        },
+        {
+          "title": "Password Pernah Diberikan kepada Teman",
+          "text": "Suatu sore, Dina kesulitan mengunggah tugas karena harus pergi lebih dulu. Ia memberikan username dan password akun sekolah kepada sahabatnya agar tugas dapat dikirim sebelum batas waktu. Sahabatnya berhasil membantu dan mengatakan sudah logout setelah selesai. Dina percaya kepada temannya sehingga tidak mengganti password. Beberapa minggu kemudian, mereka menggunakan komputer yang sama lagi untuk mengerjakan tugas kelompok. Dina tidak yakin apakah browser pada komputer itu pernah menyimpan password. Salah seorang teman berkata bahwa berbagi password dengan sahabat tidak masalah selama orangnya dapat dipercaya. Teman lain mengingatkan bahwa risiko tidak selalu berasal dari niat buruk orang yang menerima password. Password dapat tersimpan otomatis, terlihat oleh orang lain, atau dipakai pada perangkat yang tidak aman. Dina mulai memikirkan apakah kebiasaan tersebut dapat memengaruhi akun lain karena beberapa passwordnya sangat mirip."
+        },
+        {
+          "title": "Login Menggunakan Wi-Fi Umum",
+          "text": "Beberapa hari kemudian, Dina mengerjakan tugas di tempat umum dan memakai jaringan Wi-Fi gratis yang tersedia tanpa password. Nama jaringan terlihat mirip dengan nama tempat tersebut, tetapi Dina tidak menanyakan kepada petugas apakah jaringan itu resmi. Ia membuka email dan akun sekolah karena harus mengambil file dengan cepat. Saat login, browser sempat menampilkan peringatan koneksi yang tidak biasa, tetapi halaman tetap dapat dibuka setelah dimuat ulang. Dina tidak menggunakan VPN dan belum mengetahui perbedaan jaringan resmi dengan hotspot palsu. Temannya mengatakan Wi-Fi umum dipakai banyak orang setiap hari sehingga seharusnya aman. Dina kemudian pulang tanpa memeriksa sesi login di perangkat lain. Malamnya, ia menerima email pemberitahuan bahwa ada percobaan login dari perangkat dan lokasi yang tidak ia kenal."
+        },
+        {
+          "title": "Notifikasi Login Tidak Dikenal",
+          "text": "Dina bingung menentukan sumber masalah karena ada beberapa kemungkinan sekaligus: passwordnya mudah ditebak, password pernah dibagikan, browser pada perangkat lain mungkin menyimpannya, dan ia baru saja login melalui jaringan umum. Pada halaman keamanan email terlihat satu perangkat yang tidak dikenali masih memiliki sesi aktif. Dina mempertimbangkan hanya menutup notifikasi karena takut kehilangan akses jika mengganti semua password. Teman lain menyarankan mengganti password akun utama lebih dulu, keluar dari semua perangkat, mengaktifkan autentikasi dua langkah, dan memastikan email pemulihan masih dikuasai. Ada juga yang menyarankan memeriksa apakah ada perubahan pada akun sebelum melakukan hal lain. Kelompok harus menilai tingkat risikonya dan menyusun urutan tindakan pemulihan yang paling tepat agar satu akun yang bermasalah tidak menyebabkan akun lain ikut diambil alih."
+        }
+      ],
+      "impact": "Penggunaan password berulang membuat satu kebocoran dapat memengaruhi beberapa layanan sekaligus. Sesi tidak dikenal juga dapat digunakan untuk membaca data atau mengubah pengaturan akun.",
+      "perspective": "Pertimbangkan kekuatan dan keunikan password, berbagi kredensial, perangkat yang digunakan, jaringan, autentikasi dua langkah, serta urutan pemulihan akun.",
+      "groupTask": [
+        {
+          "title": "Tingkat risiko",
+          "instruction": "Tentukan tingkat risiko kondisi Dina dan jelaskan alasan utama."
+        },
+        {
+          "title": "Temukan masalah",
+          "instruction": "Identifikasi minimal tiga kebiasaan yang meningkatkan risiko."
+        },
+        {
+          "title": "Urutan pemulihan",
+          "instruction": "Susun langkah yang harus dilakukan Dina dari yang paling mendesak."
+        },
+        {
+          "title": "Pencegahan",
+          "instruction": "Berikan kebiasaan baru yang dapat mencegah kejadian serupa."
+        }
+      ]
+    },
+    {
+      "id": "screenshot-chat-pribadi",
+      "category": "privacy",
+      "topic": "Privasi digital",
+      "difficulty": "sedang",
+      "title": "Screenshot Percakapan Pribadi",
+      "kicker": "Batas Privasi",
+      "imageUrl": "case-images/04-screenshot-pribadi.jpg",
+      "text": "Tentukan cara menyelesaikan konflik tanpa memperluas penyebaran percakapan pribadi. Bahas konteks screenshot, kebutuhan bukti, hak kedua pihak, dan tindakan yang dapat menghentikan komentar di grup.",
+      "slides": [
+        {
+          "title": "Percakapan Pribadi yang Memanas",
+          "text": "Alya dan Nando menjadi anggota kelompok tugas yang sama. Menjelang batas pengumpulan, keduanya berdebat melalui chat pribadi tentang pembagian pekerjaan. Alya merasa Nando terlambat mengirim bahan, sedangkan Nando merasa Alya sering mengubah rencana tanpa memberi tahu anggota lain. Percakapan mereka menjadi emosional. Beberapa kalimat ditulis dengan nada yang cukup keras, tetapi setelah itu Alya mencoba menjelaskan maksudnya dan mengusulkan pembagian tugas baru. Karena percakapan terjadi secara pribadi, Alya mengira isi chat hanya diketahui oleh mereka berdua. Ia tidak menghapus pesan karena merasa percakapan itu dapat menjadi catatan jika perlu menjelaskan masalah kepada ketua kelompok. Nando juga menyimpan percakapan yang sama, tetapi ia lebih fokus pada bagian yang menurutnya menunjukkan bahwa Alya berbicara tidak sopan."
+        },
+        {
+          "title": "Screenshot Masuk ke Grup Kelas",
+          "text": "Nando mengambil screenshot beberapa bagian chat lalu mengirimkannya ke grup kelas. Screenshot yang dibagikan tidak memuat seluruh percakapan. Bagian ketika Alya mencoba menenangkan situasi tidak terlihat. Nando menulis bahwa ia hanya ingin membuktikan mengapa tugas kelompok mereka terlambat. Beberapa siswa langsung memberi komentar. Ada yang membela Nando, ada yang mengejek Alya, dan ada yang meneruskan screenshot kepada teman di luar grup. Alya baru mengetahui penyebaran itu ketika seorang teman menanyakan apakah kalimat dalam screenshot benar-benar ia tulis. Alya merasa malu dan menilai percakapannya dipotong sehingga konteksnya berubah. Nando berpendapat bahwa screenshot diperlukan sebagai bukti dan ia tidak mengubah isi pesan. Kelompok perlu membedakan antara menyimpan bukti untuk pihak yang berkepentingan dan menyebarkannya kepada banyak orang."
+        },
+        {
+          "title": "Alya Ingin Membalas dengan Bukti Lain",
+          "text": "Alya memiliki screenshot bagian lain yang menunjukkan bahwa Nando juga pernah menulis kalimat keras. Ia ingin mengunggahnya ke grup agar teman-teman mengetahui bahwa masalah tidak hanya berasal dari dirinya. Seorang teman dekat menyarankan agar Alya tidak membalas dengan cara yang sama karena lebih banyak potongan chat akan beredar dan konflik makin sulit dihentikan. Teman lain menyarankan menghapus semua screenshot dari grup, meminta anggota berhenti meneruskan, lalu membawa bukti lengkap kepada wali kelas jika memang diperlukan untuk menyelesaikan masalah kelompok. Alya khawatir jika ia tidak membela diri secara terbuka, siswa lain akan terus percaya pada screenshot pertama. Pada saat yang sama, membagikan percakapan lengkap juga dapat membuka informasi yang tidak berkaitan dengan tugas dan tidak seharusnya diketahui seluruh kelas."
+        },
+        {
+          "title": "Mencari Jalan Keluar yang Tidak Memperbesar Masalah",
+          "text": "Situasi menjadi lebih rumit karena screenshot sudah telanjur berada di beberapa grup. Sebagian siswa menganggapnya sekadar drama kelas, sementara Alya dan Nando masih harus menyelesaikan tugas yang sama. Ketua kelas mempertimbangkan mengingatkan anggota agar tidak meneruskan konten pribadi, tetapi ia tidak ingin terlihat memihak. Wali kelas belum mengetahui detail masalah. Kelompok kalian diminta menyusun langkah yang dapat menjaga bukti jika memang diperlukan, menghentikan penyebaran screenshot, memberikan kesempatan kepada Alya dan Nando menjelaskan konteks dengan aman, serta mencegah saling balas di media sosial. Keputusan perlu mempertimbangkan bahwa sesuatu dapat benar-benar tertulis dalam screenshot tetapi tetap menyesatkan jika konteks sebelum dan sesudahnya dihilangkan."
+        }
+      ],
+      "impact": "Screenshot yang benar secara teknis tetap dapat menyesatkan bila dipotong dari konteks dan dapat mengubah konflik pribadi menjadi perundungan publik.",
+      "perspective": "Pertimbangkan Alya, Nando, anggota grup, ketua kelas, guru, dan perbedaan antara bukti yang disimpan terbatas dengan konten yang disebarkan.",
+      "groupTask": [
+        {
+          "title": "Masalah privasi dan konteks",
+          "instruction": "Jelaskan mengapa screenshot dapat menimbulkan masalah walaupun isi pesannya asli."
+        },
+        {
+          "title": "Menghentikan penyebaran",
+          "instruction": "Tentukan tindakan untuk mencegah screenshot diteruskan lebih jauh."
+        },
+        {
+          "title": "Menyimpan bukti",
+          "instruction": "Jelaskan siapa yang sebaiknya menerima bukti jika memang diperlukan."
+        },
+        {
+          "title": "Penyelesaian konflik",
+          "instruction": "Susun cara Alya dan Nando menyelesaikan masalah tanpa saling membuka chat pribadi."
+        }
+      ]
+    },
+    {
+      "id": "video-sekolah-viral",
+      "category": "hoax",
+      "topic": "Literasi informasi",
+      "difficulty": "menantang",
+      "title": "Video Sekolah yang Viral",
+      "kicker": "Verifikasi Informasi",
+      "imageUrl": "case-images/05-video-hoaks.jpg",
+      "text": "Diskusikan tingkat kepercayaan terhadap video, langkah verifikasi, bukti yang masih kurang, dan tindakan yang sebaiknya dilakukan siswa sebelum ikut memberi komentar atau meneruskan informasi.",
+      "slides": [
+        {
+          "title": "Potongan Video Beredar",
+          "text": "Sebuah video berdurasi sekitar 18 detik mulai beredar di media sosial dan grup percakapan siswa. Video memperlihatkan dua siswa sedang berdebat cukup keras di halaman sekolah. Salah satu tampak menunjuk ke arah siswa lain, sementara beberapa orang berdiri di sekitarnya. Unggahan yang paling banyak dibagikan memberi keterangan bahwa telah terjadi perkelahian besar antarsiswa dan keadaan sekolah tidak terkendali. Karena gambar terlihat menegangkan, beberapa siswa langsung percaya dan meneruskannya tanpa mencari sumber lain. Ada yang mengirim video kepada keluarga dan ada pula yang menambahkan komentar bahwa kejadian serupa pernah terjadi sebelumnya. Namun, belum diketahui siapa yang pertama kali merekam video, siapa yang mengunggahnya, kapan rekaman dibuat, atau apakah keterangan yang menyertainya berasal dari saksi. Kelompok mulai menyadari bahwa video menunjukkan suatu adegan, tetapi tidak otomatis membuktikan seluruh narasi yang ditulis pada unggahan."
+        },
+        {
+          "title": "Narasi Makin Dramatis",
+          "text": "Setelah video tersebar, beberapa akun mengunggah ulang potongan yang sama dengan keterangan yang semakin dramatis. Salah satu akun menulis bahwa pihak sekolah sengaja menutupi kejadian agar tidak diketahui masyarakat. Akun lain mengatakan ada banyak siswa terluka, meskipun tidak menyertakan foto, nama, atau sumber informasi. Beberapa pengguna menulis komentar seolah-olah mengetahui kejadian sebenarnya. Jumlah tayangan meningkat dan sebagian siswa mulai menganggap banyaknya unggahan sebagai tanda bahwa kabar itu pasti benar. Seorang siswa menemukan bahwa beberapa akun hanya menyalin kalimat dari unggahan sebelumnya. Tidak ada yang menunjukkan rekaman lebih panjang. Situasi ini membuat kelompok harus membedakan antara banyaknya orang yang mengulang suatu klaim dengan banyaknya sumber independen yang benar-benar menyaksikan atau memiliki bukti berbeda."
+        },
+        {
+          "title": "Ada Versi Berbeda",
+          "text": "Seorang siswa yang mengaku berada di halaman sekolah saat kejadian memberikan informasi berbeda. Menurutnya, dua siswa di video sedang melakukan latihan drama untuk persiapan kegiatan sekolah. Adegan memang dibuat tegang sehingga jika hanya ditonton beberapa detik dapat terlihat seperti pertengkaran sungguhan. Ia mengingat ada guru dan beberapa anggota tim kegiatan di sekitar lokasi, tetapi siswa tersebut tidak memiliki rekaman lengkap. Ia juga tidak mengetahui siapa yang memotong video menjadi 18 detik. Sebagian anggota kelompok menganggap kesaksian ini cukup untuk menyimpulkan kabar perkelahian salah. Anggota lain mengingatkan bahwa satu kesaksian tanpa bukti juga perlu diperiksa. Versi baru dapat menjadi petunjuk penting, tetapi kelompok masih perlu membandingkannya dengan sumber lain, jadwal kegiatan sekolah, saksi tambahan, atau penjelasan pihak yang terlibat."
+        },
+        {
+          "title": "Video Asli Belum Ditemukan",
+          "text": "Kelompok kemudian mencoba menyusun daftar informasi yang belum tersedia. Video yang beredar hanya menunjukkan sebagian kecil kejadian dan tidak memperlihatkan apa yang terjadi beberapa menit sebelum maupun sesudah adegan. Nama perekam belum diketahui. Akun pertama yang mengunggah video juga belum berhasil ditemukan karena sebagian unggahan merupakan hasil repost. Tanggal pada beberapa screenshot tidak sama karena pengguna membagikannya pada waktu yang berbeda. Tidak ada informasi apakah audio asli masih utuh atau sudah diberi tambahan suara. Kelompok juga belum menemukan unggahan resmi dari sekolah. Tanpa video asli dan sumber pertama, sulit mengetahui apakah potongan tersebut dipilih sengaja untuk membangun kesan tertentu. Mereka menyadari bahwa proses verifikasi bukan sekadar memilih narasi yang paling disukai, tetapi mencari bukti yang dapat diperiksa oleh lebih dari satu pihak."
+        },
+        {
+          "title": "Keputusan Sebelum Membagikan",
+          "text": "Beberapa anggota kelompok merasa kesaksian siswa di lokasi cukup untuk membantah kabar perkelahian dan ingin segera menulis komentar bahwa video itu hoaks. Anggota lain berpendapat bahwa menyebutnya hoaks juga merupakan kesimpulan yang terlalu cepat karena bukti versi latihan drama belum lengkap. Ada yang menyarankan menahan diri dari membagikan video, mencari unggahan pertama, meminta keterangan dari panitia kegiatan, dan menunggu penjelasan resmi sekolah. Kelompok juga membahas risiko jika siswa ikut menyebarkan video hanya untuk bertanya apakah video itu benar, karena tindakan itu tetap menambah jangkauan konten. Mereka harus memutuskan tingkat kepercayaan yang tepat untuk informasi yang tersedia saat ini dan menentukan tindakan yang memungkinkan verifikasi berlangsung tanpa ikut memperkuat narasi yang belum terbukti."
+        }
+      ],
+      "impact": "Informasi yang belum terverifikasi dapat memicu kepanikan, tuduhan, konflik, dan kerusakan reputasi meskipun video aslinya benar-benar merekam suatu kejadian.",
+      "perspective": "Pertimbangkan isi visual, narasi tambahan, sumber pertama, saksi, rekaman lengkap, metadata waktu, serta keterangan resmi.",
+      "groupTask": [
+        {
+          "title": "Menilai tingkat kepercayaan",
+          "instruction": "Tentukan apakah narasi video dapat dipercaya, masih meragukan, atau belum terbukti. Jelaskan alasan."
+        },
+        {
+          "title": "Langkah verifikasi",
+          "instruction": "Susun langkah-langkah konkret untuk memeriksa sumber dan konteks video."
+        },
+        {
+          "title": "Bukti yang masih kurang",
+          "instruction": "Daftar bukti atau informasi yang diperlukan sebelum membuat kesimpulan."
+        },
+        {
+          "title": "Tindakan sebelum membagikan",
+          "instruction": "Putuskan apa yang sebaiknya dilakukan siswa sambil menunggu verifikasi dan jelaskan risikonya."
+        }
+      ]
+    },
+    {
+      "id": "story-lokasi-real-time",
+      "category": "privacy",
+      "topic": "Privasi dan lokasi",
+      "difficulty": "mudah",
+      "title": "Story Lokasi Secara Real-Time",
+      "kicker": "Privasi Lokasi",
+      "imageUrl": "case-images/06-lokasi-live.jpg",
+      "text": "Putuskan informasi apa yang aman dibagikan selama kegiatan sekolah. Jelaskan risiko lokasi real-time, informasi pendukung yang ikut terlihat, serta cara tetap berbagi pengalaman tanpa membuka pola perjalanan rombongan.",
+      "slides": [
+        {
+          "title": "Membagikan Perjalanan Study Tour",
+          "text": "Kelas VIII mengikuti study tour ke kota lain selama dua hari. Kevin senang mendokumentasikan perjalanan dan membuat story sejak rombongan berangkat dari sekolah. Ia mengunggah foto di depan bus, menandai lokasi keberangkatan, lalu menulis nomor bus agar teman-temannya tahu ia berada di rombongan mana. Ketika tiba di hotel, Kevin kembali membuat story yang memperlihatkan papan nama hotel, lobi, dan kartu peserta yang masih tergantung di lehernya. Pada kartu tersebut terlihat nama lengkap, nama sekolah, dan sebagian nomor peserta. Kevin merasa unggahan itu wajar karena banyak temannya juga membuat konten perjalanan. Akun Kevin terbuka untuk publik agar kontennya lebih mudah ditemukan. Ia mempunyai beberapa ratus pengikut dan tidak mengenal semua akun yang mengikutinya secara langsung."
+        },
+        {
+          "title": "Lokasi Terus Diperbarui",
+          "text": "Sepanjang kegiatan, Kevin menambahkan stiker lokasi setiap kali rombongan berpindah. Ia mengunggah foto saat berada di museum, tempat makan, dan area wisata, terkadang hanya beberapa menit setelah tiba. Dalam salah satu video terlihat guru pendamping sedang menjelaskan jadwal keberangkatan berikutnya. Kevin juga menulis bahwa rombongan akan kembali ke hotel setelah acara malam selesai. Seorang teman mengingatkan bahwa informasi tersebut dapat menunjukkan pola pergerakan kelompok kepada siapa pun yang melihat akun publik Kevin. Kevin berpendapat bahwa lokasi wisata dan hotel memang tempat umum sehingga tidak ada masalah. Temannya menjelaskan bahwa risiko tidak selalu berasal dari satu informasi, melainkan gabungan beberapa informasi kecil yang dapat menunjukkan siapa yang sedang bepergian, di mana mereka berada, dan kapan suatu tempat akan ditinggalkan."
+        },
+        {
+          "title": "Menentukan Cara Berbagi yang Lebih Aman",
+          "text": "Menjelang kegiatan berikutnya, guru mengingatkan siswa agar berhati-hati saat mengunggah foto yang menampilkan kartu identitas, jadwal, nomor kendaraan, atau lokasi rombongan secara langsung. Kevin tetap ingin membagikan pengalaman karena baginya itu bagian menyenangkan dari study tour. Beberapa teman menyarankan menyimpan foto terlebih dahulu lalu mengunggah setelah rombongan meninggalkan lokasi. Ada juga yang menyarankan mengubah akun menjadi privat sementara, menyembunyikan story dari orang tertentu, dan memotong bagian yang memperlihatkan data peserta. Kelompok kalian diminta menentukan informasi apa yang masih aman dibagikan, apa yang sebaiknya ditunda, dan bagaimana menjelaskan kepada Kevin bahwa menjaga privasi lokasi tidak berarti siswa dilarang membuat dokumentasi perjalanan."
+        }
+      ],
+      "impact": "Gabungan lokasi, jadwal, identitas, dan informasi kendaraan dapat membentuk pola pergerakan yang tidak perlu diketahui publik.",
+      "perspective": "Pertimbangkan Kevin sebagai pembuat konten, keamanan rombongan, privasi teman yang ikut terlihat, pengaturan akun, dan perbedaan unggahan langsung dengan unggahan setelah kegiatan.",
+      "groupTask": [
+        {
+          "title": "Informasi berisiko",
+          "instruction": "Identifikasi detail unggahan Kevin yang sebaiknya tidak dibagikan secara real-time."
+        },
+        {
+          "title": "Tingkat risiko",
+          "instruction": "Jelaskan mengapa beberapa informasi kecil dapat menjadi berisiko jika digabungkan."
+        },
+        {
+          "title": "Alternatif aman",
+          "instruction": "Berikan cara agar Kevin tetap dapat berbagi pengalaman tanpa membuka lokasi dan jadwal langsung."
+        },
+        {
+          "title": "Keputusan",
+          "instruction": "Susun aturan sederhana untuk story selama kegiatan sekolah."
+        }
+      ]
+    },
+    {
+      "id": "akun-anonim-bully",
+      "category": "ethics",
+      "topic": "Perundungan digital",
+      "difficulty": "menantang",
+      "title": "Akun Anonim Membuka Data Siswa",
+      "kicker": "Perundungan & Privasi",
+      "imageUrl": "case-images/07-akun-anonim.jpg",
+      "text": "Susun strategi kelompok untuk menghentikan penyebaran, menyimpan bukti secara terbatas dan aman, melindungi korban, serta menentukan pihak yang perlu dilibatkan tanpa membuat unggahan semakin dikenal.",
+      "slides": [
+        {
+          "title": "Akun Anonim Muncul",
+          "text": "Beberapa siswa menemukan sebuah akun anonim yang mulai ramai dibicarakan di sekolah. Akun tersebut mengunggah foto siswa, nama panggilan, gosip, serta komentar yang mengejek atau mempermalukan. Sebagian foto ternyata diambil dari akun media sosial pribadi siswa, termasuk foto lama yang sebelumnya hanya dibagikan kepada teman. Ada pula informasi tentang kebiasaan, kelas, dan kegiatan siswa yang dikumpulkan dari berbagai unggahan. Belum diketahui siapa yang mengelola akun tersebut. Awalnya sebagian siswa menganggapnya sebagai hiburan dan penasaran siapa yang akan menjadi sasaran berikutnya. Ada yang mengikuti akun agar tidak ketinggalan unggahan baru. Namun, isi akun semakin berani. Komentar yang sebelumnya hanya berupa candaan berubah menjadi ejekan tentang penampilan, keluarga, dan hal-hal pribadi. Beberapa siswa mulai merasa tidak nyaman karena siapa pun dapat menjadi bahan unggahan tanpa mengetahui kapan foto mereka diambil atau dari mana informasinya diperoleh."
+        },
+        {
+          "title": "Unggahan Dibagikan Ulang",
+          "text": "Unggahan akun anonim kemudian mulai tersebar di luar akun tersebut. Beberapa siswa mengambil screenshot lalu meneruskannya ke grup kelas, grup pertemanan, dan media sosial lain sambil menambahkan komentar atau emoji. Ada yang membagikannya karena menganggap lucu, ada yang ingin memperingatkan teman, dan ada pula yang hanya ingin menunjukkan apa yang sedang ramai. Akibatnya, siswa yang tidak mengikuti akun anonim tetap melihat isi unggahan melalui screenshot. Jumlah pengikut akun meningkat dan setiap unggahan baru menyebar lebih cepat. Beberapa siswa mulai mencoba menebak identitas pengelola akun berdasarkan gaya bahasa. Tuduhan muncul tanpa bukti dan berpotensi menyeret siswa yang sebenarnya tidak terlibat. Sementara itu, setiap kali screenshot dikirim ulang, foto dan informasi korban semakin sulit dikendalikan meskipun unggahan asli nantinya dihapus."
+        },
+        {
+          "title": "Korban Mulai Menarik Diri",
+          "text": "Salah satu siswa yang beberapa kali menjadi sasaran mulai merasa takut bertemu teman-temannya. Ia khawatir akan ditertawakan atau dibicarakan karena foto dan gosip tentang dirinya telah tersebar. Di kelas, ia menjadi lebih diam dan menghindari beberapa teman yang pernah terlihat tertawa ketika membahas akun tersebut. Suatu hari, siswa itu memilih tidak masuk sekolah. Ia menghubungi teman dekatnya dan meminta agar unggahan tentang dirinya tidak lagi diteruskan kepada siapa pun. Ia juga takut melapor karena khawatir masalah justru menjadi semakin ramai atau orang lain menganggapnya terlalu sensitif. Beberapa teman mulai menyadari bahwa apa yang awalnya dianggap sekadar candaan telah berdampak pada rasa aman korban dan keinginannya datang ke sekolah. Mereka ingin membantu, tetapi belum sepakat tindakan apa yang paling aman."
+        },
+        {
+          "title": "Bukti Perlu Disimpan",
+          "text": "Beberapa teman korban ingin melaporkan akun anonim kepada wali kelas, guru BK, orang tua, atau platform media sosial. Mereka khawatir pemilik akun akan menghapus unggahan jika mengetahui akunnya akan dilaporkan sehingga bukti hilang. Salah seorang siswa mengusulkan membuat folder screenshot. Siswa lain ingin mengirim semua screenshot ke grup khusus agar mudah dikumpulkan. Namun, cara itu berisiko menciptakan salinan baru dan membuat foto, gosip, serta komentar korban terus beredar. Mereka perlu menentukan siapa yang seharusnya menyimpan bukti, apa saja yang perlu dicatat seperti nama akun, tautan, waktu unggahan, dan tanggal pengambilan screenshot, serta bagaimana mengirim bukti hanya kepada pihak yang benar-benar perlu mengetahui. Mereka juga harus berhati-hati agar proses dokumentasi tidak berubah menjadi alasan baru untuk membaca atau menyebarkan konten yang merugikan korban."
+        },
+        {
+          "title": "Menentukan Langkah Bersama",
+          "text": "Situasi semakin rumit karena akun anonim masih aktif dan beberapa siswa masih membagikan unggahannya. Kelompok kalian diminta membantu menyusun strategi yang tidak hanya berfokus pada menghapus akun, tetapi juga menghentikan rantai penyebaran di antara siswa. Korban membutuhkan dukungan agar merasa aman dan tidak sendirian. Bukti perlu dijaga untuk laporan, tetapi tidak boleh disebarkan lebih luas. Sekolah dan orang tua mungkin perlu dilibatkan, namun kelompok juga harus menentukan informasi apa yang perlu disampaikan dan kepada siapa. Platform media sosial memiliki fitur pelaporan, pemblokiran, dan pengaduan konten. Setiap langkah perlu dipikirkan agar usaha membantu korban tidak justru membuat akun semakin terkenal, memicu perburuan identitas pengelola tanpa bukti, atau membuat korban harus berulang kali melihat kembali unggahan yang menyakitkan."
+        }
+      ],
+      "impact": "Perundungan digital dapat mengganggu rasa aman, kehadiran di sekolah, reputasi, dan privasi korban. Penyebaran ulang membuat dampak bertahan meskipun unggahan asli dihapus.",
+      "perspective": "Pertimbangkan korban, teman yang ingin membantu, siswa yang membagikan ulang, saksi, wali kelas, guru BK, orang tua, sekolah, dan pengelola platform.",
+      "groupTask": [
+        {
+          "title": "Menghentikan penyebaran",
+          "instruction": "Tentukan tindakan agar siswa berhenti melihat, membagikan, atau meneruskan unggahan."
+        },
+        {
+          "title": "Menyimpan bukti dengan aman",
+          "instruction": "Jelaskan cara menyimpan screenshot, nama akun, waktu, dan tautan tanpa memperluas penyebaran."
+        },
+        {
+          "title": "Melindungi korban",
+          "instruction": "Susun bentuk dukungan agar korban merasa aman dan tidak sendirian."
+        },
+        {
+          "title": "Pihak yang perlu dilibatkan",
+          "instruction": "Pilih pihak yang perlu diberi tahu dan jelaskan alasan serta informasi yang perlu dibagikan."
+        }
+      ]
+    },
+    {
+      "id": "qr-poster-sekolah",
+      "category": "phishing",
+      "topic": "Keamanan digital",
+      "difficulty": "sedang",
+      "title": "QR Code pada Poster Lomba",
+      "kicker": "Periksa Sebelum Pindai",
+      "imageUrl": "case-images/08-qr-palsu.jpg",
+      "text": "Tentukan apakah poster dan halaman pendaftaran dapat dipercaya. Bahas pemeriksaan QR, domain, identitas penyelenggara, data yang diminta, dan tindakan untuk siswa yang sudah terlanjur memasukkan akun.",
+      "slides": [
+        {
+          "title": "Poster Lomba Muncul di Sekolah",
+          "text": "Pada pagi hari, beberapa siswa melihat poster lomba desain digital ditempel di dekat gerbang dan papan pengumuman. Poster menggunakan warna dan logo yang mirip dengan identitas sekolah serta mencantumkan tulisan “Didukung Sekolah”. Hadiah yang ditawarkan cukup besar dan pendaftaran disebut gratis. Untuk mendaftar, siswa diminta memindai QR code. Tidak ada nama guru penanggung jawab, tetapi terdapat tulisan bahwa kuota peserta terbatas. Beberapa siswa langsung memotret poster dan membagikannya ke grup kelas. Karena poster berada di lingkungan sekolah, banyak yang menganggap informasi tersebut sudah pasti resmi. Namun, tidak ada pengumuman yang sama di website sekolah, grup wali kelas, atau akun media sosial resmi sekolah. Belum diketahui siapa yang menempel poster dan kapan poster tersebut dipasang."
+        },
+        {
+          "title": "QR Mengarah ke Halaman Login",
+          "text": "Saat QR dipindai, browser membuka sebuah halaman yang memakai logo sekolah dan formulir pendaftaran. Sebelum dapat mengisi lomba, siswa diminta login menggunakan email sekolah dan password. Halaman juga meminta nomor telepon, nama lengkap, kelas, dan tanggal lahir. Alamat situs tidak menggunakan domain resmi sekolah. Nama domain terdiri dari beberapa kata yang menyerupai nama sekolah tetapi diakhiri domain gratis yang tidak familiar. Salah seorang siswa mengatakan tampilan situs sangat rapi sehingga kemungkinan aman. Siswa lain mengingatkan bahwa desain halaman dapat dibuat menyerupai situs resmi. Di bagian bawah terdapat hitung mundur pendaftaran dan pesan bahwa peserta yang keluar dari halaman harus mengulang dari awal. Beberapa siswa mulai memasukkan data karena takut kuota habis."
+        },
+        {
+          "title": "Hadiah dan Tekanan Waktu",
+          "text": "Poster menjanjikan laptop untuk pemenang pertama, tablet untuk pemenang kedua, dan sertifikat bagi semua peserta. Tawaran tersebut membuat banyak siswa tertarik. Seorang siswa menerima email otomatis setelah mengisi form, tetapi alamat pengirim bukan alamat sekolah. Email meminta peserta melakukan “verifikasi akun” melalui tautan lain. Guru piket yang ditanya belum mengetahui lomba tersebut dan menyarankan siswa menunggu informasi dari bagian kesiswaan. Ada siswa yang berpendapat pendaftaran tetap dapat dilanjutkan karena jika lomba palsu, mereka tinggal mengganti password. Kelompok perlu menilai apakah tindakan itu cukup aman, terutama karena email sekolah dapat digunakan untuk memulihkan akun lain dan mungkin menyimpan dokumen pembelajaran."
+        },
+        {
+          "title": "Beberapa Siswa Sudah Terlanjur Mengisi",
+          "text": "Sebelum poster diperiksa lebih lanjut, dua siswa mengaku sudah memasukkan email sekolah, password, dan nomor telepon ke halaman tersebut. Salah satunya bahkan menggunakan password yang sama pada akun lain. Mereka khawatir akan dimarahi sehingga sempat meminta teman untuk tidak memberi tahu guru. Kelompok harus memutuskan apa yang perlu dilakukan dengan poster, cara memeriksa penyelenggara, bagaimana melindungi siswa yang sudah memasukkan data, dan apakah QR code aman dipindai ulang untuk mengumpulkan bukti. Mereka juga perlu membedakan antara menyimpan alamat situs sebagai bukti dengan terus membuka atau menyebarkan tautan berbahaya kepada lebih banyak siswa."
+        }
+      ],
+      "impact": "QR dapat menyembunyikan tujuan tautan sehingga pengguna lebih mudah diarahkan ke situs phishing yang meniru tampilan resmi.",
+      "perspective": "Pertimbangkan lokasi poster, identitas penyelenggara, domain, data yang diminta, siswa yang sudah mengisi, dan cara melapor tanpa menyebarkan tautan.",
+      "groupTask": [
+        {
+          "title": "Menilai keaslian",
+          "instruction": "Temukan bukti yang mendukung atau meragukan bahwa poster adalah resmi."
+        },
+        {
+          "title": "Pemeriksaan aman",
+          "instruction": "Susun cara memverifikasi QR dan penyelenggara tanpa memberikan data rahasia."
+        },
+        {
+          "title": "Siswa yang sudah mengisi",
+          "instruction": "Tentukan langkah pemulihan yang harus segera dilakukan."
+        },
+        {
+          "title": "Penanganan poster",
+          "instruction": "Tentukan bagaimana mencegah siswa lain menjadi korban sekaligus menjaga bukti."
+        }
+      ]
+    },
+    {
+      "id": "deepfake-teman",
+      "category": "ethics",
+      "topic": "Etika penggunaan AI dan media",
+      "difficulty": "menantang",
+      "title": "Video Edit Wajah Teman",
+      "kicker": "Manipulasi Media",
+      "imageUrl": "case-images/09-deepfake.jpg",
+      "text": "Nilai apakah video edit berbasis AI layak dibagikan. Pertimbangkan persetujuan penggunaan wajah, kemungkinan orang salah memahami video, label edit, penyebaran ulang, dan tanggung jawab pembuat konten.",
+      "slides": [
+        {
+          "title": "Video Edit untuk Bercanda",
+          "text": "Damar mencoba sebuah aplikasi berbasis AI yang dapat mengganti wajah seseorang dalam video. Ia mengambil foto Rio dari akun media sosial kelas lalu menempatkan wajah Rio pada tokoh dalam potongan video populer. Hasilnya cukup meyakinkan karena gerakan bibir dan ekspresi wajah tampak menyatu dengan suara dalam video. Damar membuatnya untuk bercanda dan hanya memperlihatkan kepada tiga teman dekat. Mereka tertawa dan mengatakan hasil editnya sangat bagus. Rio belum mengetahui bahwa fotonya digunakan. Damar beranggapan tidak perlu meminta izin karena foto Rio memang sudah pernah diunggah di akun kelas dan video edit tidak dibuat untuk mencari uang. Salah seorang teman mengingatkan bahwa foto yang tersedia di internet tidak berarti bebas digunakan untuk membuat seseorang terlihat melakukan atau mengatakan hal yang sebenarnya tidak pernah ia lakukan."
+        },
+        {
+          "title": "Teman-teman Ingin Mengunggah",
+          "text": "Setelah melihat hasilnya, beberapa teman meminta Damar mengunggah video ke media sosial kelas. Mereka yakin Rio akan ikut tertawa karena video dibuat dalam konteks lelucon. Seorang teman menyarankan menambahkan tulisan kecil “edit AI” di keterangan unggahan. Teman lain mengatakan label tidak terlalu penting karena teman sekelas pasti tahu itu palsu. Damar mulai mempertimbangkan jangkauan unggahan. Akun kelas diikuti siswa dari kelas lain, alumni, dan beberapa orang tua. Jika video diunduh lalu dikirim ulang tanpa keterangan asli, label pada caption dapat hilang. Potongan video juga dapat diambil dan diunggah oleh akun lain. Kelompok perlu memikirkan apakah persetujuan Rio tetap diperlukan walaupun video diberi label dan apakah ukuran audiens memengaruhi risiko."
+        },
+        {
+          "title": "Konteks Bisa Disalahpahami",
+          "text": "Isi video membuat seolah-olah Rio mengatakan kalimat yang sebenarnya diucapkan tokoh asli. Kalimat itu tidak berisi ancaman, tetapi cukup memalukan jika dianggap benar. Salah seorang teman menunjukkan bahwa jika seseorang hanya menerima hasil rekaman layar beberapa detik, ia mungkin tidak melihat label “edit AI”. Rio juga mungkin merasa keberatan karena wajahnya digunakan untuk membuat ekspresi yang tidak pernah ia lakukan. Di sisi lain, Damar merasa banyak meme internet menggunakan foto orang lain dan tidak semuanya menimbulkan masalah. Kelompok harus membedakan antara humor, manipulasi identitas, persetujuan, dan risiko informasi palsu. Mereka juga perlu mempertimbangkan apa yang seharusnya dilakukan jika Rio ternyata tidak keberatan tetapi video berpotensi menyesatkan orang lain."
+        },
+        {
+          "title": "Pilihan Sebelum Mengunggah",
+          "text": "Sebelum mengambil keputusan, Damar memiliki beberapa pilihan: meminta izin Rio dan menunjukkan video secara lengkap, mengubah konten agar tidak menggunakan wajah orang nyata, menambahkan label yang jelas di dalam video, membatasi penonton, atau memilih tidak mengunggah sama sekali. Teman-temannya tidak sepakat tentang tindakan yang cukup. Ada yang menganggap izin Rio sudah menyelesaikan masalah. Ada yang menilai izin saja belum cukup jika video tetap dapat disalahpahami sebagai rekaman asli. Kelompok diminta menentukan syarat apa yang perlu dipenuhi agar penggunaan teknologi edit tetap bertanggung jawab dan tindakan apa yang harus dilakukan jika video sudah telanjur tersebar tanpa label. Keputusan perlu mempertimbangkan hak orang yang wajahnya digunakan sekaligus tanggung jawab terhadap penonton yang dapat tertipu."
+        }
+      ],
+      "impact": "Manipulasi media dapat menggunakan identitas seseorang tanpa persetujuan, merusak reputasi, dan menyesatkan penonton ketika konteks atau label hilang.",
+      "perspective": "Pertimbangkan Damar, Rio, teman yang ingin mengunggah, penonton di luar kelas, serta perbedaan antara izin subjek dan kejelasan informasi bagi publik.",
+      "groupTask": [
+        {
+          "title": "Persetujuan",
+          "instruction": "Jelaskan apakah Damar perlu meminta izin dan alasan kelompok."
+        },
+        {
+          "title": "Risiko salah paham",
+          "instruction": "Jelaskan bagaimana video dapat dianggap asli setelah dibagikan ulang."
+        },
+        {
+          "title": "Syarat konten bertanggung jawab",
+          "instruction": "Susun syarat minimum jika video edit tetap akan digunakan."
+        },
+        {
+          "title": "Jika sudah tersebar",
+          "instruction": "Tentukan tindakan koreksi bila video tanpa label telah beredar."
+        }
+      ]
+    },
+    {
+      "id": "apk-mod-game",
+      "category": "security",
+      "topic": "Keamanan perangkat",
+      "difficulty": "sedang",
+      "title": "APK Mod dari Grup Chat",
+      "kicker": "Keamanan Perangkat",
+      "imageUrl": "case-images/10-apk-malware.jpg",
+      "text": "Tentukan apakah APK mod aman dipasang. Identifikasi risiko dari sumber file dan izin aplikasi, jelaskan dampak jika perangkat terinfeksi, serta pilih alternatif yang lebih aman.",
+      "slides": [
+        {
+          "title": "Tawaran APK Premium Gratis",
+          "text": "Ardi bergabung dalam grup chat penggemar sebuah gim. Salah satu anggota membagikan file APK yang diklaim sebagai versi modifikasi dengan fitur premium, mata uang gim tidak terbatas, dan tanpa iklan. Pengirim mengatakan file tersebut sudah digunakan banyak orang dan mengirim beberapa screenshot sebagai bukti. Ardi tertarik karena fitur yang sama cukup mahal jika dibeli melalui aplikasi resmi. File tidak berasal dari toko aplikasi dan nama pengirim tidak dikenal Ardi secara pribadi. Beberapa anggota grup menulis komentar bahwa file bekerja dengan baik, tetapi Ardi tidak tahu apakah akun-akun tersebut benar-benar pengguna berbeda. Pengirim menyarankan mematikan pemindaian keamanan jika instalasi diblokir karena “antivirus sering salah mendeteksi aplikasi mod”. Ardi harus menentukan apakah banyaknya komentar positif cukup untuk mempercayai file yang tidak memiliki penerbit resmi."
+        },
+        {
+          "title": "Peringatan Keamanan dan Banyak Izin",
+          "text": "Ketika Ardi mencoba memasang file, ponsel meminta izin untuk mengaktifkan instalasi dari sumber tidak dikenal. Setelah itu, aplikasi meminta akses ke SMS, kontak, penyimpanan, mikrofon, dan layanan aksesibilitas. Ardi bingung karena sebuah gim seharusnya tidak perlu membaca SMS. Teman di grup mengatakan izin itu diperlukan agar fitur mod berjalan. Teman sekolah Ardi mengingatkan bahwa akses SMS dapat berkaitan dengan kode OTP dan layanan aksesibilitas dapat memberi aplikasi kemampuan yang luas pada perangkat. Ponsel juga menampilkan peringatan bahwa file belum diperiksa oleh toko aplikasi. Ardi berpikir ia dapat mencoba memasang lalu menghapus jika muncul masalah. Namun, ia tidak tahu apakah penghapusan aplikasi selalu menghilangkan perubahan atau data yang sudah terlanjur dikirim keluar perangkat."
+        },
+        {
+          "title": "Memilih antara Fitur Gratis dan Keamanan",
+          "text": "Ardi menggunakan ponsel yang sama untuk email, akun sekolah, media sosial, mobile banking milik orang tuanya yang kadang dipakai bersama, serta menerima SMS OTP. Jika aplikasi berbahaya memperoleh akses luas, dampaknya dapat melampaui akun gim. Di sisi lain, Ardi sangat ingin mencoba fitur premium dan merasa rugi jika hanya dirinya yang tidak memakai mod sementara teman daring lain sudah menggunakannya. Kelompok harus menilai sumber file, jenis izin yang diminta, kemungkinan risiko malware, dan alternatif yang lebih aman seperti menggunakan aplikasi resmi, menunggu promosi, atau mencoba versi gratis. Mereka juga perlu menentukan apa yang sebaiknya dilakukan jika Ardi sudah terlanjur memasang aplikasi dan memberikan izin sebelum menyadari risikonya."
+        }
+      ],
+      "impact": "Aplikasi dari sumber tidak dikenal dapat mencuri data, membaca OTP, memasang komponen lain, atau mengambil alih fungsi perangkat dengan izin yang terlalu luas.",
+      "perspective": "Pertimbangkan sumber file, reputasi penerbit, izin yang relevan dengan fungsi aplikasi, data lain di perangkat, serta tindakan pemulihan setelah instalasi.",
+      "groupTask": [
+        {
+          "title": "Tanda risiko",
+          "instruction": "Temukan minimal tiga hal yang membuat file atau proses instalasi mencurigakan."
+        },
+        {
+          "title": "Izin aplikasi",
+          "instruction": "Jelaskan mengapa beberapa izin tidak sesuai dengan fungsi gim."
+        },
+        {
+          "title": "Keputusan instalasi",
+          "instruction": "Tentukan apakah Ardi sebaiknya memasang file dan berikan alasan."
+        },
+        {
+          "title": "Jika sudah terpasang",
+          "instruction": "Susun langkah pengamanan jika aplikasi sudah sempat diberi izin."
+        }
+      ]
+    }
+  ]
+}
