@@ -1,0 +1,69 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+    "rooms": {
+      "$room": {
+        ".read": true,
+        ".write": true,
+        "meta": {
+          "hostUid": {
+            ".validate": "newData.isString()"
+          }
+        },
+        "students": {
+          "$uid": {
+            "name": {
+              ".validate": "newData.isString() && newData.val().length >= 2 && newData.val().length <= 60"
+            },
+            "cls": {
+              ".validate": "newData.isString() && newData.val().length >= 1 && newData.val().length <= 30"
+            },
+            "groupId": {
+              ".validate": "newData.isString() && (newData.val() === '' || newData.val().matches(/^g[0-9]+$/))"
+            },
+            "pendingGroupId": {
+              ".validate": "newData.isString() && (newData.val() === '' || newData.val().matches(/^g[0-9]+$/))"
+            },
+            "deviceActive": {
+              ".validate": "!newData.exists() || newData.isBoolean()"
+            },
+            "archived": {
+              ".validate": "!newData.exists() || newData.isBoolean()"
+            },
+            "recoveredFromUid": {
+              ".validate": "!newData.exists() || newData.isString()"
+            },
+            "packageUid": {
+              ".validate": "!newData.exists() || newData.isString()"
+            }
+          }
+        },
+        "crossword": {
+          "globalSolved": {
+            "$entry": {
+              ".validate": "!newData.exists() || (newData.hasChildren(['answer','source','solvedAt']) && newData.child('answer').isString() && newData.child('answer').val() === root.child('rooms').child($room).child('crossword').child('puzzle').child('entries').child($entry).child('answer').val() && newData.child('source').isString() && newData.child('solvedAt').isNumber() && ((newData.child('source').val() === 'starter') || (newData.child('source').val() === 'team' && newData.hasChildren(['teamId','teamName','colorIndex','solvedByUid','solvedByName','points','claimId']) && newData.child('solvedByUid').isString() && newData.child('teamId').val() === root.child('rooms').child($room).child('students').child(newData.child('solvedByUid').val()).child('groupId').val() && newData.child('teamName').isString() && newData.child('colorIndex').isNumber() && newData.child('points').isNumber() && newData.child('points').val() >= 0 && newData.child('points').val() <= 30 && newData.child('claimId').isString())))"
+            }
+          }
+        }
+      }
+    },
+    "groupChats": {
+      "$room": {
+        ".write": true,
+        "$group": {
+          "$message": {
+            ".validate": "newData.hasChildren(['uid','name','text','createdAt']) && newData.child('text').isString() && newData.child('text').val().length >= 1 && newData.child('text').val().length <= 500 && newData.child('createdAt').isNumber() && (!newData.child('roundKey').exists() || newData.child('roundKey').isString()) && (!newData.child('roundIndex').exists() || newData.child('roundIndex').isNumber())"
+          }
+        },
+        ".read": true
+      }
+    },
+    "activityEvaluations": {
+      "$room": {
+        ".read": true,
+        ".write": true
+      }
+    }
+  }
+}
